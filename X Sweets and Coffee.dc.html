@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics="">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>X Sweets and Coffee by Traxilvania — Cafenea &amp; Cofetărie în Păltiniș, Sibiu</title>
+<meta name="description" content="Cafenea &amp; cofetărie premium în Păltiniș, județul Sibiu. Cafea de specialitate, deserturi artizanale și atmosferă de munte. Deschis zilnic 10:00–22:00. Rezervări: 0752040566.">
+<meta name="keywords" content="cafenea Sibiu, restaurant Sibiu, cofetărie Sibiu, cafenea Păltiniș, restaurant Păltiniș, cofetărie Păltiniș, cafenea județul Sibiu, X Sweets and Coffee Traxilvania, cafenea munte Sibiu">
+<meta name="robots" content="index, follow">
+<meta name="author" content="X Sweets and Coffee by Traxilvania">
+<link rel="canonical" href="https://xsweetsandcoffee.ro/">
+<meta property="og:type" content="restaurant.restaurant">
+<meta property="og:site_name" content="X Sweets and Coffee by Traxilvania">
+<meta property="og:locale" content="ro_RO">
+<meta property="og:title" content="X Sweets and Coffee by Traxilvania — Cafenea &amp; Cofetărie în Păltiniș, Sibiu">
+<meta property="og:description" content="Cafenea &amp; cofetărie premium în Păltiniș, județul Sibiu. Cafea de specialitate, deserturi artizanale, atmosferă de munte. Deschis zilnic 10:00–22:00.">
+<meta property="og:url" content="https://xsweetsandcoffee.ro/">
+<meta property="og:image" content="https://xsweetsandcoffee.ro/assets/hero-media.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="X Sweets and Coffee by Traxilvania — Cafenea &amp; Cofetărie în Păltiniș, Sibiu">
+<meta name="twitter:description" content="Cafenea &amp; cofetărie premium în Păltiniș, județul Sibiu. Cafea de specialitate și deserturi artizanale, atmosferă de munte.">
+<meta name="twitter:image" content="https://xsweetsandcoffee.ro/assets/hero-media.png">
+<meta name="geo.region" content="RO-SB">
+<meta name="geo.placename" content="Păltiniș, Sibiu">
+<meta name="geo.position" content="45.6667;23.9333">
+<meta name="ICBM" content="45.6667, 23.9333">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&amp;family=Montserrat:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"CafeOrCoffeeShop","name":"X Sweets and Coffee by Traxilvania","description":"Cafenea și cofetărie premium în stațiunea Păltiniș, județul Sibiu. Cafea de specialitate, deserturi artizanale și o atmosferă elegantă de munte.","image":"https://xsweetsandcoffee.ro/assets/hero-media.png","logo":"https://xsweetsandcoffee.ro/assets/logo-white.png","url":"https://xsweetsandcoffee.ro/","telephone":"+40752040566","priceRange":"$$","servesCuisine":["Coffee","Desserts"],"currenciesAccepted":"RON","paymentAccepted":"Cash, Card","address":{"@type":"PostalAddress","streetAddress":"Stațiunea Păltiniș","addressLocality":"Păltiniș","addressRegion":"Sibiu","postalCode":"550001","addressCountry":"RO"},"geo":{"@type":"GeoCoordinates","latitude":45.6667,"longitude":23.9333},"hasMap":"https://maps.app.goo.gl/GXov3Cb3PcTJPEJ1A","openingHours":"Mo-Su 10:00-22:00","openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"10:00","closes":"22:00"}],"sameAs":["https://www.instagram.com/xsweetsandcoffee/","https://www.tiktok.com/@xsweetsandcoffee","https://www.facebook.com/people/X-SweetsCoffee-by-Traxilvania/61561053506762/"]}
+</script>
+<style>
+  :root{
+    /* LIGHT (zi) — alb cu roșu și negru */
+    --bg:#FFFFFF; --bg2:#F4F4F5; --surface:#FFFFFF; --surface2:#FAFAFB;
+    --text:#111112; --text2:#55555B; --muted:#8A8A90;
+    --gold:#D11423; --gold-soft:#E23B47;
+    --border:rgba(17,17,18,.12); --border2:rgba(17,17,18,.07);
+    --shadow:0 24px 60px rgba(0,0,0,.10);
+    --nav:rgba(255,255,255,.85);
+  }
+  [data-theme="dark"]{
+    /* DARK (noapte) — negru cu roșu închis și alb */
+    --bg:#0B0B0C; --bg2:#111113; --surface:#141416; --surface2:#1B1B1E;
+    --text:#F4F4F5; --text2:#B4B4BA; --muted:#7C7C83;
+    --gold:#C41520; --gold-soft:#D8323D;
+    --border:rgba(255,255,255,.13); --border2:rgba(255,255,255,.06);
+    --shadow:0 24px 60px rgba(0,0,0,.55);
+    --nav:rgba(11,11,12,.8);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{background:var(--bg);overflow-x:hidden}
+  ::selection{background:var(--gold);color:#fff}
+  a,button,section,article,header,footer,nav,div,input,select,label,h1,h2,h3,h4,p,span,li,ul,figure,img{
+    transition:background-color .55s ease,color .55s ease,border-color .55s ease,box-shadow .45s ease,opacity .4s ease;
+  }
+  input,select,button,textarea{font-family:'Montserrat',sans-serif}
+  @media(max-width:860px){.xs-navlinks{display:none !important}.xs-burger{display:flex !important}}
+  @media(max-width:520px){.xs-wordmark{display:none !important}}
+  @keyframes xsFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(7px)}}
+  @keyframes xsUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes xsFade{from{opacity:0}to{opacity:1}}
+  @keyframes xsSlideIn{from{transform:translateX(100%)}to{transform:translateX(0)}}
+</style>
+</helmet>
+
+<div id="xs-root" ref="{{ rootRef }}" data-theme="{{ themeAttr }}" style="background:var(--bg);color:var(--text);font-family:'Montserrat',sans-serif;min-height:100vh;overflow-x:hidden;position:relative">
+
+  <header style="position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;justify-content:flex-end;padding:12px clamp(18px,5vw,54px);background:var(--nav);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border2)">
+    <button onClick="{{ toTop }}" aria-label="X Sweets and Coffee — acasă" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;align-items:center;background:none;border:none;cursor:pointer;padding:0">
+      <img src="assets/logo-white.png" alt="Logo X Sweets and Coffee by Traxilvania — cafenea și cofetărie în Păltiniș, județul Sibiu" style="height:76px;width:auto;display:block">
+    </button>
+
+    <nav style="display:flex;align-items:center;gap:6px" aria-label="Navigare principală">
+      <div style="display:flex;gap:2px" class="xs-navlinks">
+        <button onClick="{{ goDespre }}" style="background:none;border:none;cursor:pointer;color:var(--text2);font-size:12.5px;letter-spacing:1.2px;text-transform:uppercase;padding:9px 14px;border-radius:8px" style-hover="color:var(--text);background:var(--border2)">Despre noi</button>
+        <button onClick="{{ goMeniu }}" style="background:none;border:none;cursor:pointer;color:var(--text2);font-size:12.5px;letter-spacing:1.2px;text-transform:uppercase;padding:9px 14px;border-radius:8px" style-hover="color:var(--text);background:var(--border2)">Meniu</button>
+        <button onClick="{{ goGalerie }}" style="background:none;border:none;cursor:pointer;color:var(--text2);font-size:12.5px;letter-spacing:1.2px;text-transform:uppercase;padding:9px 14px;border-radius:8px" style-hover="color:var(--text);background:var(--border2)">Galerie</button>
+        <button onClick="{{ openRes }}" style="background:none;border:none;cursor:pointer;color:var(--text2);font-size:12.5px;letter-spacing:1.2px;text-transform:uppercase;padding:9px 14px;border-radius:8px" style-hover="color:var(--text);background:var(--border2)">Rezervări</button>
+      </div>
+      <button onClick="{{ toggleNav }}" aria-label="Meniu" class="xs-burger" style="display:none;align-items:center;justify-content:center;width:40px;height:40px;border:1px solid var(--border);background:var(--surface);border-radius:10px;cursor:pointer;color:var(--text);font-size:17px;margin-left:4px">☰</button>
+    </nav>
+  </header>
+
+  <sc-if value="{{ navOpen }}" hint-placeholder-val="{{ false }}">
+    <div>
+      <div onClick="{{ toggleNav }}" style="position:fixed;inset:0;z-index:64;background:rgba(0,0,0,.5);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);animation:xsFade .35s ease"></div>
+      <nav aria-label="Meniu" style="position:fixed;top:0;right:0;bottom:0;z-index:65;width:min(320px,82vw);background:var(--surface);border-left:1px solid var(--border);box-shadow:-30px 0 70px rgba(0,0,0,.4);padding:20px 16px calc(20px + env(safe-area-inset-bottom));display:flex;flex-direction:column;gap:4px;animation:xsSlideIn .4s cubic-bezier(.22,.61,.36,1)">
+        <div style="display:flex;justify-content:flex-end;margin-bottom:10px">
+          <button onClick="{{ toggleNav }}" aria-label="Închide" style="background:none;border:1px solid var(--border);width:40px;height:40px;border-radius:10px;color:var(--text);font-size:20px;line-height:1;cursor:pointer" style-hover="border-color:var(--gold);color:var(--gold)">×</button>
+        </div>
+        <button onClick="{{ goDespre }}" style="background:none;border:none;text-align:left;cursor:pointer;color:var(--text);font-size:16px;padding:15px 16px;border-radius:10px;letter-spacing:.5px" style-hover="background:var(--border2)">Despre noi</button>
+        <button onClick="{{ goMeniu }}" style="background:none;border:none;text-align:left;cursor:pointer;color:var(--text);font-size:16px;padding:15px 16px;border-radius:10px;letter-spacing:.5px" style-hover="background:var(--border2)">Meniu</button>
+        <button onClick="{{ goGalerie }}" style="background:none;border:none;text-align:left;cursor:pointer;color:var(--text);font-size:16px;padding:15px 16px;border-radius:10px;letter-spacing:.5px" style-hover="background:var(--border2)">Galerie</button>
+        <button onClick="{{ openRes }}" style="background:none;border:none;text-align:left;cursor:pointer;color:var(--text);font-size:16px;padding:15px 16px;border-radius:10px;letter-spacing:.5px" style-hover="background:var(--border2)">Rezervări</button>
+        <button onClick="{{ goLocatie }}" style="background:none;border:none;text-align:left;cursor:pointer;color:var(--text);font-size:16px;padding:15px 16px;border-radius:10px;letter-spacing:.5px" style-hover="background:var(--border2)">Locație &amp; Program</button>
+      </nav>
+    </div>
+  </sc-if>
+
+  <main>
+    <!-- ===================== HERO: ScrollExpandMedia (React, wheel/touch-driven) ===================== -->
+    <section id="hero" aria-label="X Sweets and Coffee — cafenea în Păltiniș, Sibiu" style="position:relative;display:flex;flex-direction:column;align-items:center;min-height:100dvh;overflow-x:hidden">
+      <div style="position:absolute;inset:0;z-index:0;height:100%">
+        <img src="assets/hero.png" alt="Terasă premium cu flori și priveliște de munte la cafeneaua X Sweets and Coffee din Păltiniș, județul Sibiu" fetchpriority="high" style="{{ bgStyle }}">
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.42),rgba(0,0,0,.18) 40%,rgba(0,0,0,.6))"></div>
+      </div>
+
+      <div style="width:100%;display:flex;flex-direction:column;align-items:center;position:relative;z-index:10">
+        <div style="width:100%;height:100dvh;display:flex;align-items:center;justify-content:center;position:relative">
+
+          <!-- expanding media -->
+          <div style="{{ mediaStyle }}">
+            <img src="assets/hero.png" alt="Interior elegant cu flori și decor de lemn la cafeneaua și cofetăria X Sweets and Coffee din Păltiniș, Sibiu" style="width:100%;height:100%;object-fit:cover">
+            <div style="{{ mediaOverlayStyle }}"></div>
+            <div style="{{ hintWrapStyle }}">
+              <span style="display:inline-block;animation:xsFloat 2s ease-in-out infinite;color:#C41520;font-size:2.4rem;line-height:1;font-weight:400">⌄</span>
+            </div>
+          </div>
+
+          <!-- split title -->
+          <div style="{{ titleWrapStyle }}">
+            <h1 style="margin:0;display:flex;flex-direction:column;align-items:center;text-align:center;gap:2px">
+              <span style="display:flex;flex-wrap:nowrap;justify-content:center;gap:min(4vw,36px);font-family:'Cormorant Garamond',serif;font-weight:600;line-height:.98;color:#FFFFFF;text-shadow:0 2px 40px rgba(0,0,0,.5);font-size:clamp(2.6rem,9vw,6.5rem)">
+                <span style="{{ titleLeftStyle }}">X&nbsp;Sweets</span>
+                <span style="{{ titleRightStyle }}">&amp;&nbsp;Coffee</span>
+              </span>
+              <span style="font-family:'Montserrat',sans-serif;font-weight:300;font-size:clamp(.72rem,2vw,1rem);letter-spacing:clamp(2px,1vw,7px);text-transform:uppercase;color:#EDEDEF;margin-top:16px">by Traxilvania · Păltiniș, Sibiu</span>
+            </h1>
+          </div>
+        </div>
+
+        <!-- ===================== CONTENT (revealed after expand) ===================== -->
+        <div style="{{ contentStyle }}">
+
+          <!-- DESPRE NOI -->
+          <section id="despre" style="max-width:1080px;margin:0 auto;padding:clamp(72px,11vw,132px) clamp(20px,6vw,60px)">
+            <div style="text-align:center;max-width:760px;margin:0 auto">
+              <p style="font-size:12px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin:0 0 18px">Despre noi</p>
+              <h2 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(2rem,4.6vw,3.3rem);line-height:1.08;margin:0 0 28px;color:var(--text)">Scapă de agitația orașului</h2>
+              <p style="font-size:clamp(1rem,1.5vw,1.12rem);line-height:1.9;color:var(--text2);margin:0 0 22px;text-wrap:pretty">La <strong style="color:var(--text);font-weight:500">X Sweets and Coffee by Traxilvania</strong> lași forfota și graba în urmă și te reconectezi cu tine, sus în inima munților, în județul Sibiu. Aici timpul merge mai încet, aerul e mai curat, iar liniștea te învăluie la fiecare pas.</p>
+              <p style="font-size:clamp(1rem,1.5vw,1.12rem);line-height:1.9;color:var(--text2);margin:0 0 22px;text-wrap:pretty">Am gândit fiecare colț al acestui loc special pentru clipele tale de relaxare — de la priveliștea care se deschide larg spre munți, până la atmosfera caldă în care te simți imediat ca acasă. La noi găsești mâncare gătită pe loc, deserturi bune, cafea aromată și băuturi răcoritoare pe placul tuturor.</p>
+              <p style="font-size:clamp(1rem,1.5vw,1.12rem);line-height:1.9;color:var(--text2);margin:0;text-wrap:pretty">Fiecare detaliu e acolo ca tu să poți respira adânc, să te așezi fără grabă și să te bucuri pe deplin de momentul prezent. Un refugiu creat cu drag, în care poveștile frumoase se scriu la fiecare vizită.</p>
+            </div>
+          </section>
+
+          <!-- GALERIE -->
+          <section id="galerie" style="max-width:1180px;margin:0 auto;padding:clamp(72px,11vw,132px) clamp(20px,6vw,60px)">
+            <div style="text-align:center;margin-bottom:52px">
+              <p style="font-size:12px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin:0 0 16px">Galerie</p>
+              <h2 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(2rem,4.6vw,3.3rem);line-height:1.08;margin:0;color:var(--text)">Atmosfera noastră</h2>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));grid-auto-rows:190px;gap:16px">
+              <sc-for list="{{ gallery }}" as="img" hint-placeholder-count="6">
+                <figure onClick="{{ img.open }}" style="{{ img.tileStyle }}">
+                  <img src="{{ img.src }}" alt="{{ img.alt }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s ease" style-hover="transform:scale(1.06)">
+                  <figcaption style="position:absolute;inset:0;display:flex;align-items:flex-end;padding:16px;background:linear-gradient(to top,rgba(0,0,0,.62),transparent 55%);opacity:0;transition:opacity .4s ease" style-hover="opacity:1"><span style="color:#F4E9D6;font-family:'Cormorant Garamond',serif;font-size:1.05rem">{{ img.cap }}</span></figcaption>
+                </figure>
+              </sc-for>
+            </div>
+            <div style="display:flex;justify-content:center;margin-top:48px">
+              <a href="Galerie.dc.html" style="display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:#fff;text-decoration:none;font-size:14px;letter-spacing:1.5px;text-transform:uppercase;padding:17px 38px;border-radius:40px;box-shadow:var(--shadow)" style-hover="background:var(--text)">Mai multe →</a>
+            </div>
+          </section>
+
+          <!-- MENIU (teaser) -->
+          <section id="meniu-preview" style="max-width:1180px;margin:0 auto;padding:clamp(20px,4vw,48px) clamp(20px,6vw,60px) clamp(72px,11vw,120px)">
+            <div style="text-align:center;margin-bottom:44px">
+              <p style="font-size:12px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin:0 0 16px">Meniu</p>
+              
+              <p style="font-size:1.02rem;line-height:1.8;color:var(--text2);margin:0 auto;max-width:460px;text-wrap:pretty">Mâncare, deserturi, cafea și băuturi. Descoperă meniul nostru!</p>
+            </div>
+            <a href="Meniu.dc.html" aria-label="Deschide meniul X Sweets and Coffee" style="display:block;max-width:440px;margin:0 auto;text-decoration:none">
+              <div style="position:relative;aspect-ratio:3/4;border-radius:12px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.08);background:linear-gradient(160deg,#1a1013 0%,#0c0c0e 55%,#000 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:8%;transition:transform .5s ease,box-shadow .5s ease" style-hover="transform:translateY(-6px);box-shadow:0 40px 90px rgba(0,0,0,.62)">
+                <div style="position:absolute;inset:0;background:radial-gradient(90% 60% at 50% 30%, rgba(196,21,32,.16), transparent 60%);pointer-events:none"></div>
+                <img src="assets/logo-white.png" alt="Logo X Sweets and Coffee by Traxilvania — meniu cafenea Păltiniș, Sibiu" style="width:min(240px,60%);height:auto;position:relative;z-index:1">
+                <div style="display:flex;align-items:center;gap:16px;margin-top:10px;position:relative;z-index:1">
+                  <span style="width:44px;height:1px;background:rgba(216,50,61,.7)"></span>
+                  <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;font-size:clamp(2.4rem,7vw,3.4rem);color:#F6F5F3;line-height:1">Meniu</span>
+                  <span style="width:44px;height:1px;background:rgba(216,50,61,.7)"></span>
+                </div>
+                <div style="position:relative;z-index:1;margin-top:22px;display:inline-flex;align-items:center;gap:10px;background:rgba(196,21,32,.16);border:1px solid rgba(216,50,61,.55);padding:11px 26px;border-radius:40px">
+                  <span style="color:#F6F5F3;font-size:13px;letter-spacing:2.5px;text-transform:uppercase;font-weight:500">Vezi meniul →</span>
+                </div>
+                <p style="position:relative;z-index:1;color:#9A9890;font-size:12px;letter-spacing:3px;text-transform:uppercase;margin:22px 0 0">Păltiniș · Sibiu</p>
+              </div>
+            </a>
+          </section>
+
+          <!-- REZERVARI + EVENIMENTE -->
+          <section id="rezervari" style="background:var(--bg2);border-top:1px solid var(--border2);border-bottom:1px solid var(--border2)">
+            <div style="max-width:1080px;margin:0 auto;padding:clamp(72px,11vw,132px) clamp(20px,6vw,60px);display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(32px,5vw,64px);align-items:center">
+              <div>
+                <p style="font-size:12px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin:0 0 16px">Rezervări</p>
+                <h2 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(2rem,4.6vw,3.1rem);line-height:1.08;margin:0 0 22px;color:var(--text)">Rezervă o masă la X Sweets and Coffee</h2>
+                <p style="font-size:1.05rem;line-height:1.85;color:var(--text2);margin:0 0 30px;max-width:440px;text-wrap:pretty">Îți păstrăm locul preferat. Trimite-ne o rezervare rapidă pe WhatsApp — răspundem prompt, în timpul programului, zilnic între 10:00 și 22:00.</p>
+                <button onClick="{{ openRes }}" style="display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:#fff;border:none;cursor:pointer;font-size:14px;letter-spacing:1.5px;text-transform:uppercase;padding:17px 34px;border-radius:40px;box-shadow:var(--shadow)" style-hover="background:var(--text)">Rezervă pe WhatsApp →</button>
+              </div>
+              <div style="border:1px solid var(--border);background:var(--surface);border-radius:20px;padding:34px;box-shadow:var(--shadow)">
+                <p style="font-size:12px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin:0 0 14px">Evenimente</p>
+                <h3 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.6rem;color:var(--text);margin:0 0 14px">Evenimente la cerere</h3>
+                <p style="font-size:1rem;line-height:1.8;color:var(--text2);margin:0 0 26px;text-wrap:pretty">Organizăm evenimente private, aniversări și întâlniri speciale în atmosfera noastră de munte. Pentru detalii și disponibilitate, sună-ne direct.</p>
+                <a href="tel:+40752040566" style="display:inline-flex;align-items:center;gap:10px;color:var(--text);border:1px solid var(--gold);text-decoration:none;font-size:14px;letter-spacing:1px;padding:15px 28px;border-radius:40px" style-hover="background:var(--gold);color:#fff">☎ Sună: 0752 040 566</a>
+              </div>
+            </div>
+          </section>
+
+          <!-- LOCATIE / PROGRAM -->
+          <section id="locatie" style="max-width:1080px;margin:0 auto;padding:clamp(72px,11vw,132px) clamp(20px,6vw,60px)">
+            <div style="text-align:center;margin-bottom:48px">
+              <p style="font-size:12px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin:0 0 16px">Locație &amp; Program</p>
+              <h2 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(2rem,4.6vw,3.3rem);line-height:1.08;margin:0;color:var(--text)">Ne găsești în Păltiniș, Sibiu</h2>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px">
+              <a href="https://maps.app.goo.gl/GXov3Cb3PcTJPEJ1A" target="_blank" rel="noopener" style="text-decoration:none;display:flex;flex-direction:column;justify-content:space-between;gap:24px;padding:36px;border:1px solid var(--border);border-radius:20px;background:var(--surface);box-shadow:var(--shadow);min-height:220px" style-hover="border-color:var(--gold)">
+                <div style="display:flex;align-items:center;gap:14px">
+                  <span style="display:flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:50%;background:var(--gold);color:#fff;font-size:22px">📍</span>
+                  <div>
+                    <div style="font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--text)">Adresă</div>
+                    <div style="font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--muted)">Deschide în Google Maps</div>
+                  </div>
+                </div>
+                <p style="margin:0;font-size:1.1rem;line-height:1.7;color:var(--text2)">Stațiunea Păltiniș,<br>județul Sibiu, România</p>
+              </a>
+              <div style="display:flex;flex-direction:column;justify-content:space-between;gap:24px;padding:36px;border:1px solid var(--border);border-radius:20px;background:var(--surface);box-shadow:var(--shadow);min-height:220px">
+                <div style="display:flex;align-items:center;gap:14px">
+                  <span style="display:flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:50%;background:var(--gold);color:#fff;font-size:22px">🕑</span>
+                  <div>
+                    <div style="font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--text)">Program</div>
+                    
+                  </div>
+                </div>
+                <div style="display:flex;flex-direction:column;gap:9px">
+                  <div style="display:flex;justify-content:space-between;gap:16px;font-size:1rem"><span style="color:var(--text2)">Luni</span><span style="color:var(--gold);font-weight:500;font-variant-numeric:tabular-nums">10:00 – 22:00</span></div>
+                  <div style="display:flex;justify-content:space-between;gap:16px;font-size:1rem"><span style="color:var(--text2)">Marți</span><span style="color:var(--gold);font-weight:500;font-variant-numeric:tabular-nums">10:00 – 22:00</span></div>
+                  <div style="display:flex;justify-content:space-between;gap:16px;font-size:1rem"><span style="color:var(--text2)">Miercuri</span><span style="color:var(--gold);font-weight:500;font-variant-numeric:tabular-nums">10:00 – 22:00</span></div>
+                  <div style="display:flex;justify-content:space-between;gap:16px;font-size:1rem"><span style="color:var(--text2)">Joi</span><span style="color:var(--gold);font-weight:500;font-variant-numeric:tabular-nums">10:00 – 22:00</span></div>
+                  <div style="display:flex;justify-content:space-between;gap:16px;font-size:1rem"><span style="color:var(--text2)">Vineri</span><span style="color:var(--gold);font-weight:500;font-variant-numeric:tabular-nums">10:00 – 22:00</span></div>
+                  <div style="display:flex;justify-content:space-between;gap:16px;font-size:1rem"><span style="color:var(--text2)">Sâmbătă</span><span style="color:var(--gold);font-weight:500;font-variant-numeric:tabular-nums">10:00 – 22:00</span></div>
+                  <div style="display:flex;justify-content:space-between;gap:16px;font-size:1rem"><span style="color:var(--text2)">Duminică</span><span style="color:var(--gold);font-weight:500;font-variant-numeric:tabular-nums">10:00 – 22:00</span></div>
+                </div>
+              </div>
+              <a href="tel:+40752040566" style="text-decoration:none;display:flex;flex-direction:column;justify-content:space-between;gap:24px;padding:36px;border:1px solid var(--border);border-radius:20px;background:var(--surface);box-shadow:var(--shadow);min-height:220px" style-hover="border-color:var(--gold)">
+                <div style="display:flex;align-items:center;gap:14px">
+                  <span style="display:flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:50%;background:var(--gold);color:#fff;font-size:22px">☎</span>
+                  <div>
+                    <div style="font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--text)">Telefon</div>
+                    <div style="font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--muted)">Click to call</div>
+                  </div>
+                </div>
+                <p style="margin:0;font-size:1.5rem;color:var(--text2)">0752 040 566</p>
+              </a>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer style="{{ footerStyle }}">
+    <div style="max-width:1080px;margin:0 auto;padding:clamp(56px,8vw,88px) clamp(20px,6vw,60px)">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:40px 32px">
+        <div>
+          <img src="assets/logo-white.png" alt="Logo X Sweets and Coffee by Traxilvania, cafenea în Păltiniș, Sibiu" style="width:200px;max-width:80%;height:auto;display:block">
+        </div>
+        <div>
+          <h4 style="font-size:12px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin:0 0 18px">Contact</h4>
+          <p style="margin:0 0 12px;font-size:.95rem;color:var(--text2);line-height:1.7">Stațiunea Păltiniș,<br>județul Sibiu, România</p>
+          <a href="tel:+40752040566" style="display:inline-block;color:var(--text);text-decoration:none;font-size:.98rem" style-hover="color:var(--gold)">☎ 0752 040 566</a>
+        </div>
+        <div>
+          <h4 style="font-size:12px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin:0 0 18px">Program</h4>
+          <div style="display:flex;flex-direction:column;gap:9px">
+            <div style="display:flex;justify-content:space-between;gap:10px;font-size:.9rem;white-space:nowrap"><span style="color:var(--muted)">Luni</span><span style="color:var(--text);font-variant-numeric:tabular-nums;white-space:nowrap">10:00 – 22:00</span></div>
+            <div style="display:flex;justify-content:space-between;gap:10px;font-size:.9rem;white-space:nowrap"><span style="color:var(--muted)">Marți</span><span style="color:var(--text);font-variant-numeric:tabular-nums;white-space:nowrap">10:00 – 22:00</span></div>
+            <div style="display:flex;justify-content:space-between;gap:10px;font-size:.9rem;white-space:nowrap"><span style="color:var(--muted)">Miercuri</span><span style="color:var(--text);font-variant-numeric:tabular-nums;white-space:nowrap">10:00 – 22:00</span></div>
+            <div style="display:flex;justify-content:space-between;gap:10px;font-size:.9rem;white-space:nowrap"><span style="color:var(--muted)">Joi</span><span style="color:var(--text);font-variant-numeric:tabular-nums;white-space:nowrap">10:00 – 22:00</span></div>
+            <div style="display:flex;justify-content:space-between;gap:10px;font-size:.9rem;white-space:nowrap"><span style="color:var(--muted)">Vineri</span><span style="color:var(--text);font-variant-numeric:tabular-nums;white-space:nowrap">10:00 – 22:00</span></div>
+            <div style="display:flex;justify-content:space-between;gap:10px;font-size:.9rem;white-space:nowrap"><span style="color:var(--muted)">Sâmbătă</span><span style="color:var(--text);font-variant-numeric:tabular-nums;white-space:nowrap">10:00 – 22:00</span></div>
+            <div style="display:flex;justify-content:space-between;gap:10px;font-size:.9rem;white-space:nowrap"><span style="color:var(--muted)">Duminică</span><span style="color:var(--text);font-variant-numeric:tabular-nums;white-space:nowrap">10:00 – 22:00</span></div>
+          </div>
+        </div>
+        <div>
+          <h4 style="font-size:12px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin:0 0 18px">Urmărește-ne</h4>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <a href="https://www.instagram.com/xsweetsandcoffee/" target="_blank" rel="noopener" style="color:var(--text2);text-decoration:none;font-size:.95rem" style-hover="color:var(--gold)">Instagram</a>
+            <a href="https://www.tiktok.com/@xsweetsandcoffee" target="_blank" rel="noopener" style="color:var(--text2);text-decoration:none;font-size:.95rem" style-hover="color:var(--gold)">TikTok</a>
+            <a href="https://www.facebook.com/people/X-SweetsCoffee-by-Traxilvania/61561053506762/" target="_blank" rel="noopener" style="color:var(--text2);text-decoration:none;font-size:.95rem" style-hover="color:var(--gold)">Facebook</a>
+          </div>
+        </div>
+        <div>
+          <h4 style="font-size:12px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin:0 0 18px">Informații</h4>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <a href="https://anpc.ro/" target="_blank" rel="noopener" style="color:var(--text2);text-decoration:none;font-size:.95rem" style-hover="color:var(--gold)">ANPC</a>
+            <a href="#" style="color:var(--text2);text-decoration:none;font-size:.95rem" style-hover="color:var(--gold)">Termeni și condiții</a>
+            <a href="https://maps.app.goo.gl/GXov3Cb3PcTJPEJ1A" target="_blank" rel="noopener" style="color:var(--text2);text-decoration:none;font-size:.95rem" style-hover="color:var(--gold)">Google Maps</a>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:52px;padding-top:26px;border-top:1px solid var(--border2);display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;align-items:center">
+        <span style="font-size:.85rem;color:var(--muted)">© {{ year }} X Sweets and Coffee by Traxilvania. Toate drepturile rezervate.</span>
+        <span style="font-size:.85rem;color:var(--muted)">Păltiniș · Sibiu · România</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- REZERVARE MODAL -->
+  <sc-if value="{{ resOpen }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeRes }}" style="position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:18px;background:rgba(15,10,6,.62);backdrop-filter:blur(6px);animation:xsFade .3s ease">
+      <div onClick="{{ stop }}" style="width:100%;max-width:440px;background:var(--surface);border:1px solid var(--border);border-radius:22px;box-shadow:0 40px 90px rgba(0,0,0,.4);padding:clamp(26px,5vw,38px);animation:xsUp .35s ease">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px">
+          <div>
+            <p style="font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin:0 0 8px">Rezervare</p>
+            <h3 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.75rem;color:var(--text);margin:0">Rezervă o masă</h3>
+          </div>
+          <button onClick="{{ closeRes }}" aria-label="Închide" style="background:none;border:none;cursor:pointer;color:var(--muted);font-size:24px;line-height:1;padding:2px 6px">×</button>
+        </div>
+        <p style="font-size:.9rem;color:var(--text2);margin:0 0 26px;line-height:1.6">Completează detaliile — deschidem WhatsApp cu mesajul pregătit.</p>
+
+        <label style="display:block;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:8px">Nume</label>
+        <input value="{{ resName }}" onInput="{{ setName }}" placeholder="Numele tău" style="width:100%;padding:14px 16px;border:1px solid var(--border);border-radius:12px;background:var(--surface2);color:var(--text);font-size:15px;margin-bottom:20px;outline:none">
+
+        <label style="display:block;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:8px">Număr de persoane</label>
+        <select value="{{ resCount }}" onChange="{{ setCount }}" style="width:100%;padding:14px 16px;border:1px solid var(--border);border-radius:12px;background:var(--surface2);color:var(--text);font-size:15px;margin-bottom:20px;outline:none;-webkit-appearance:none;appearance:none">
+          <sc-for list="{{ counts }}" as="c" hint-placeholder-count="8"><option value="{{ c.v }}">{{ c.label }}</option></sc-for>
+        </select>
+
+        <label style="display:block;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:8px">Data &amp; ora <span style="text-transform:none;letter-spacing:0;color:var(--muted)">(opțional)</span></label>
+        <input type="datetime-local" value="{{ resDate }}" onInput="{{ setDate }}" style="width:100%;padding:14px 16px;border:1px solid var(--border);border-radius:12px;background:var(--surface2);color:var(--text);font-size:15px;margin-bottom:28px;outline:none">
+
+        <a href="{{ waHref }}" target="_blank" rel="noopener" onClick="{{ afterSubmit }}" style="display:flex;align-items:center;justify-content:center;gap:10px;background:#25D366;color:#fff;text-decoration:none;font-size:15px;letter-spacing:.5px;font-weight:500;padding:17px;border-radius:12px" style-hover="filter:brightness(1.05)">Trimite rezervarea pe WhatsApp</a>
+        <p style="text-align:center;font-size:.8rem;color:var(--muted);margin:14px 0 0">sau sună la <a href="tel:+40752040566" style="color:var(--gold);text-decoration:none">0752 040 566</a></p>
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- LIGHTBOX -->
+  <sc-if value="{{ lightboxOpen }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeLightbox }}" style="position:fixed;inset:0;z-index:110;display:flex;align-items:center;justify-content:center;padding:24px;background:rgba(12,8,4,.9);backdrop-filter:blur(4px);animation:xsFade .3s ease">
+      <button onClick="{{ prevImg }}" aria-label="Imaginea anterioară" style="position:absolute;left:14px;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(0,0,0,.3);color:#fff;font-size:22px;cursor:pointer">‹</button>
+      <figure onClick="{{ stop }}" style="margin:0;max-width:min(900px,92vw);max-height:82vh;display:flex;flex-direction:column;gap:14px;align-items:center">
+        <img src="{{ lightboxSrc }}" alt="{{ lightboxAlt }}" style="max-width:100%;max-height:74vh;object-fit:contain;border-radius:10px;box-shadow:0 30px 80px rgba(0,0,0,.6)">
+        <figcaption style="color:#EDEDEF;font-family:'Cormorant Garamond',serif;font-size:1.15rem">{{ lightboxCap }}</figcaption>
+      </figure>
+      <button onClick="{{ nextImg }}" aria-label="Imaginea următoare" style="position:absolute;right:14px;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(0,0,0,.3);color:#fff;font-size:22px;cursor:pointer">›</button>
+      <button onClick="{{ closeLightbox }}" aria-label="Închide galeria" style="position:absolute;top:18px;right:18px;width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(0,0,0,.3);color:#fff;font-size:24px;cursor:pointer">×</button>
+    </div>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;,&quot;height&quot;:&quot;100%&quot;},&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#C41520&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Aspect&quot;,&quot;options&quot;:[&quot;#C41520&quot;,&quot;#A81018&quot;,&quot;#D8323D&quot;,&quot;#9E0B12&quot;]}}">
+class Component extends DCLogic {
+  state = {
+    dark: true,
+    progress: 0,
+    fullyExpanded: false,
+    showContent: false,
+    isMobile: false,
+    touchStartY: 0,
+    navOpen: false,
+    resOpen: false,
+    resName: '',
+    resCount: '2',
+    resDate: '',
+    lightbox: null,
+  };
+
+  componentDidMount() {
+    this._wheel = this.onWheel.bind(this);
+    this._scroll = this.onScroll.bind(this);
+    this._ts = this.onTouchStart.bind(this);
+    this._tm = this.onTouchMove.bind(this);
+    this._te = this.onTouchEnd.bind(this);
+    this._resize = this.onResize.bind(this);
+    window.addEventListener('wheel', this._wheel, { passive: false });
+    window.addEventListener('scroll', this._scroll);
+    window.addEventListener('touchstart', this._ts, { passive: false });
+    window.addEventListener('touchmove', this._tm, { passive: false });
+    window.addEventListener('touchend', this._te);
+    window.addEventListener('resize', this._resize);
+    this.onResize();
+    try { window.scrollTo(0, 0); } catch (e) {}
+    this.applyAccent();
+  }
+
+  componentDidUpdate(prev) {
+    if (prev.accent !== this.props.accent) this.applyAccent();
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('wheel', this._wheel);
+    window.removeEventListener('scroll', this._scroll);
+    window.removeEventListener('touchstart', this._ts);
+    window.removeEventListener('touchmove', this._tm);
+    window.removeEventListener('touchend', this._te);
+    window.removeEventListener('resize', this._resize);
+  }
+
+  applyAccent() {
+    try {
+      const el = document.getElementById('xs-root');
+      const a = this.props.accent;
+      // only override the CSS red if the user picked a NON-default accent
+      if (el && a && a !== '#C41520') el.style.setProperty('--gold', a);
+    } catch (e) {}
+  }
+
+  onResize() { this.setState({ isMobile: window.innerWidth < 768 }); }
+
+  advance(np) {
+    const patch = { progress: np };
+    if (np >= 1) { patch.fullyExpanded = true; patch.showContent = true; }
+    else if (np < 0.75) { patch.showContent = false; }
+    this.setState(patch);
+  }
+
+  onWheel(e) {
+    const { fullyExpanded, progress } = this.state;
+    if (fullyExpanded && e.deltaY < 0 && window.scrollY <= 5) {
+      this.setState({ fullyExpanded: false, showContent: false });
+      e.preventDefault();
+    } else if (!fullyExpanded) {
+      e.preventDefault();
+      const np = Math.min(Math.max(progress + e.deltaY * 0.0009, 0), 1);
+      this.advance(np);
+    }
+  }
+
+  onTouchStart(e) { this.setState({ touchStartY: e.touches[0].clientY }); }
+
+  onTouchMove(e) {
+    const { fullyExpanded, progress, touchStartY } = this.state;
+    if (!touchStartY) return;
+    const touchY = e.touches[0].clientY;
+    const deltaY = touchStartY - touchY;
+    if (fullyExpanded && deltaY < -20 && window.scrollY <= 5) {
+      this.setState({ fullyExpanded: false, showContent: false });
+      e.preventDefault();
+    } else if (!fullyExpanded) {
+      e.preventDefault();
+      const factor = deltaY < 0 ? 0.008 : 0.005;
+      const np = Math.min(Math.max(progress + deltaY * factor, 0), 1);
+      this.advance(np);
+      this.setState({ touchStartY: touchY });
+    }
+  }
+
+  onTouchEnd() { this.setState({ touchStartY: 0 }); }
+
+  onScroll() { if (!this.state.fullyExpanded) window.scrollTo(0, 0); }
+
+  expandNow(cb) {
+    if (!this.state.fullyExpanded) {
+      this.setState({ fullyExpanded: true, showContent: true, progress: 1 });
+    }
+    setTimeout(cb, 90);
+  }
+
+  smoothTo(y) {
+    const start = window.scrollY;
+    const dist = y - start;
+    const dur = 640;
+    const t0 = performance.now();
+    const step = (t) => {
+      const k = Math.min(1, (t - t0) / dur);
+      const e = k < 0.5 ? 2 * k * k : 1 - Math.pow(-2 * k + 2, 2) / 2;
+      window.scrollTo(0, start + dist * e);
+      if (k < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }
+
+  scrollToId(id) {
+    this.setState({ navOpen: false });
+    this.expandNow(() => {
+      const el = document.getElementById(id);
+      if (el) {
+        const y = Math.max(0, el.getBoundingClientRect().top + window.scrollY - 100);
+        this.smoothTo(y);
+      }
+    });
+  }
+
+  toggleTheme() {
+    const d = !this.state.dark;
+    try { localStorage.setItem('xs-theme', d ? 'dark' : 'light'); } catch (e) {}
+    this.setState({ dark: d });
+  }
+
+  waHref() {
+    const { resName, resCount, resDate } = this.state;
+    const msg = 'Bună ziua! Doresc o rezervare la X Sweets and Coffee. Nume: ' +
+      (resName || '—') + ', Număr persoane: ' + resCount + ', Data/ora: ' + (resDate || '—') + '.';
+    return 'https://wa.me/40752040566?text=' + encodeURIComponent(msg);
+  }
+
+  renderVals() {
+    const s = this.state;
+    const p = s.progress;
+    const mediaWidth = 460 + p * (s.isMobile ? 480 : 1120);
+    const mediaHeight = 290 + p * (s.isMobile ? 330 : 580);
+    const tx = p * (s.isMobile ? 180 : 150);
+
+    const galleryData = [
+      { src: 'assets/gallery/dessert-1.jpg', cap: 'Deserturi cu priveliște', alt: 'Deserturi la X Sweets and Coffee cu priveliște spre munții din Păltiniș, Sibiu' },
+      { src: 'assets/gallery/food-1.jpg', cap: 'Preparate gustoase', alt: 'Preparat gustos servit la restaurantul X Sweets and Coffee din Păltiniș, Sibiu' },
+      { src: 'assets/gallery/drink-1.jpg', cap: 'Băuturi răcoritoare', alt: 'Băutură răcoritoare cu priveliște spre munți la X Sweets and Coffee, Păltiniș' },
+      { src: 'assets/gallery/terasa-1.jpg', cap: 'Terasă cu priveliște', alt: 'Terasa cu priveliște spre munți la X Sweets and Coffee din Păltiniș, județul Sibiu' },
+      { src: 'assets/gallery/dessert-2.jpg', cap: 'Deserturi bune', alt: 'Desert la cofetăria X Sweets and Coffee din Păltiniș, munții Sibiului' },
+      { src: 'assets/gallery/drink-2.jpg', cap: 'Limonade & smoothie', alt: 'Smoothie proaspăt cu priveliște spre munți la X Sweets and Coffee, Păltiniș' },
+      { src: 'assets/gallery/terasa-2.jpg', cap: 'Serile pe terasă', alt: 'Terasa X Sweets and Coffee seara, cu umbrele și lumini, în Păltiniș, Sibiu' },
+      { src: 'assets/gallery/food-2.jpg', cap: 'Platouri de savurat', alt: 'Platou generos de savurat la restaurantul X Sweets and Coffee din Păltiniș' },
+    ];
+    const tall = { 1: true, 2: true, 3: true, 4: true, 5: true, 6: true, 7: true };
+    const gallery = galleryData.map((g, i) => ({
+      src: g.src, alt: g.alt, cap: g.cap,
+      open: () => this.setState({ lightbox: i }),
+      tileStyle: {
+        position: 'relative', overflow: 'hidden', borderRadius: '14px', cursor: 'pointer',
+        border: '1px solid var(--border)', background: 'var(--surface)', margin: 0,
+        gridRow: tall[i] ? 'span 2' : 'span 1',
+      },
+    }));
+
+    const counts = [];
+    for (let i = 1; i <= 12; i++) counts.push({ v: String(i), label: i === 12 ? '12+ persoane' : (i === 1 ? '1 persoană' : i + ' persoane') });
+
+    const lb = s.lightbox;
+    const lbData = lb != null ? galleryData[lb] : null;
+
+    return {
+      rootRef: null,
+      themeAttr: 'dark',
+      year: new Date().getFullYear(),
+
+      toggleTheme: () => this.toggleTheme(),
+      toggleNav: () => this.setState(st => ({ navOpen: !st.navOpen })),
+      navOpen: s.navOpen,
+      toTop: () => this.scrollToId('hero'),
+      goDespre: () => this.scrollToId('despre'),
+      goMeniu: () => { this.setState({ navOpen: false }); window.location.href = 'Meniu.dc.html'; },
+      goGalerie: () => { this.setState({ navOpen: false }); window.location.href = 'Galerie.dc.html'; },
+      goLocatie: () => this.scrollToId('locatie'),
+
+      sunStyle: { display: s.dark ? 'none' : 'block', fontSize: '17px' },
+      moonStyle: { display: s.dark ? 'block' : 'none', fontSize: '16px' },
+
+      // hero dynamic styles
+      // BACKGROUND: same photo, blurred + darkened backdrop; fades out as the sharp media expands
+      bgStyle: { width: '100vw', height: '100vh', objectFit: 'cover', objectPosition: 'center', opacity: 1 - p, filter: 'blur(22px) brightness(.5)', transform: 'scale(1.14)' },
+      mediaStyle: {
+        position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)',
+        width: mediaWidth + 'px', height: mediaHeight + 'px', maxWidth: '95vw', maxHeight: '85vh',
+        borderRadius: (18 - 16 * p) + 'px', boxShadow: '0 30px 80px rgba(0,0,0,.4)',
+        overflow: 'hidden', zIndex: 0,
+      },
+      mediaOverlayStyle: { position: 'absolute', inset: 0, background: '#000', opacity: 0.34 - p * 0.29, pointerEvents: 'none' },
+      hintWrapStyle: {
+        position: 'absolute', left: 0, right: 0, bottom: '18px', display: 'flex', flexDirection: 'column',
+        alignItems: 'center', gap: '6px', zIndex: 2, opacity: Math.max(0, 1 - p * 1.4), pointerEvents: 'none',
+      },
+      dateStyle: { transform: 'translateX(-' + tx + 'vw)', color: '#EDEDEF', fontSize: 'clamp(.8rem,2vw,1.1rem)', margin: 0, fontFamily: "'Cormorant Garamond',serif", letterSpacing: '1px' },
+      hintStyle: { transform: 'translateX(' + tx + 'vw)', color: '#D8323D', fontSize: 'clamp(.72rem,1.4vw,.9rem)', letterSpacing: '2px', textTransform: 'uppercase', margin: 0, fontWeight: 600 },
+      titleWrapStyle: {
+        position: 'relative', zIndex: 10, width: '100%', display: 'flex', justifyContent: 'center',
+        pointerEvents: 'none', opacity: Math.max(0, 1 - p * 1.15),
+      },
+      titleLeftStyle: { display: 'inline-block', transform: 'translateX(-' + tx + 'vw)', whiteSpace: 'nowrap' },
+      titleRightStyle: { display: 'inline-block', transform: 'translateX(' + tx + 'vw)', whiteSpace: 'nowrap' },
+
+      contentStyle: {
+        width: '100%', opacity: s.showContent ? 1 : 0,
+        transition: 'opacity .7s ease', pointerEvents: s.showContent ? 'auto' : 'none',
+      },
+      footerStyle: {
+        background: 'var(--bg2)', borderTop: '1px solid var(--border2)',
+        opacity: s.showContent ? 1 : 0, transition: 'opacity .7s ease',
+      },
+
+      gallery,
+      counts,
+
+      // reservation
+      resOpen: s.resOpen,
+      openRes: () => this.setState({ resOpen: true, navOpen: false }),
+      closeRes: () => this.setState({ resOpen: false }),
+      stop: (e) => { if (e && e.stopPropagation) e.stopPropagation(); },
+      resName: s.resName, resCount: s.resCount, resDate: s.resDate,
+      setName: (e) => this.setState({ resName: e.target.value }),
+      setCount: (e) => this.setState({ resCount: e.target.value }),
+      setDate: (e) => this.setState({ resDate: e.target.value }),
+      waHref: this.waHref(),
+      afterSubmit: () => setTimeout(() => this.setState({ resOpen: false }), 200),
+
+      // lightbox
+      lightboxOpen: lb != null,
+      lightboxSrc: (lbData || galleryData[0]).src,
+      lightboxAlt: (lbData || galleryData[0]).alt,
+      lightboxCap: (lbData || galleryData[0]).cap,
+      closeLightbox: () => this.setState({ lightbox: null }),
+      prevImg: (e) => { if (e) e.stopPropagation(); this.setState(st => ({ lightbox: (st.lightbox + galleryData.length - 1) % galleryData.length })); },
+      nextImg: (e) => { if (e) e.stopPropagation(); this.setState(st => ({ lightbox: (st.lightbox + 1) % galleryData.length })); },
+    };
+  }
+}
+</script>
+</body>
+</html>

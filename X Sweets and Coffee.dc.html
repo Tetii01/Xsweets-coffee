@@ -58,7 +58,8 @@
   }
   *{box-sizing:border-box}
   html,body{margin:0;padding:0}
-  body{background:var(--bg);overflow-x:hidden}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);overflow-x:clip}
   ::selection{background:var(--gold);color:#fff}
   a,button,section,article,header,footer,nav,div,input,select,label,h1,h2,h3,h4,p,span,li,ul,figure,img{
     transition:background-color .55s ease,color .55s ease,border-color .55s ease,box-shadow .45s ease,opacity .4s ease;
@@ -73,7 +74,7 @@
 </style>
 </helmet>
 
-<div id="xs-root" ref="{{ rootRef }}" data-theme="{{ themeAttr }}" style="background:var(--bg);color:var(--text);font-family:'Montserrat',sans-serif;min-height:100vh;overflow-x:hidden;position:relative">
+<div id="xs-root" ref="{{ rootRef }}" data-theme="{{ themeAttr }}" style="background:var(--bg);color:var(--text);font-family:'Montserrat',sans-serif;min-height:100vh;overflow-x:clip;position:relative">
 
   <header style="position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;justify-content:flex-end;padding:12px clamp(18px,5vw,54px);background:var(--nav);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border2)">
     <button onClick="{{ toTop }}" aria-label="X Sweets and Coffee — acasă" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;align-items:center;background:none;border:none;cursor:pointer;padding:0">

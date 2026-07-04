@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Meniu — X Sweets and Coffee by Traxilvania · Cafenea în Păltiniș, Sibiu</title>
+<meta name="description" content="Meniul cafenelei X Sweets and Coffee din Păltiniș, județul Sibiu: mâncare, deserturi artizanale, cafea de specialitate și băuturi. Prețuri actualizate.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://xsweetsandcoffee.ro/meniu">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:#0A0A0B}
+  #menu-root ::-webkit-scrollbar{width:6px}
+  #menu-root ::-webkit-scrollbar-thumb{background:rgba(216,50,61,.4);border-radius:6px}
+  #menu-root ::-webkit-scrollbar-track{background:transparent}
+  @keyframes mFloatX{0%,100%{transform:translateX(0)}50%{transform:translateX(7px)}}
+</style>
+</helmet>
+
+<div id="menu-root" style="min-height:100dvh;background:radial-gradient(140% 100% at 50% -10%, #1a181d, #0A0A0B 60%);color:#F4F4F5;font-family:'Montserrat',sans-serif;display:flex;flex-direction:column;align-items:center;position:relative;overflow:hidden">
+
+  <!-- top bar -->
+  <header style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px clamp(14px,4vw,34px);position:relative;z-index:20">
+    <a href="X%20Sweets%20and%20Coffee.dc.html" style="display:inline-flex;align-items:center;gap:8px;color:#B4B2B8;text-decoration:none;font-size:12.5px;letter-spacing:1.5px;text-transform:uppercase;padding:9px 14px;border:1px solid rgba(255,255,255,.13);border-radius:40px;white-space:nowrap" style-hover="color:#fff;border-color:#D8323D">← Înapoi</a>
+
+    <div style="display:flex;gap:3px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);padding:4px;border-radius:40px">
+      <button onClick="{{ pickFood }}" style="{{ foodTabStyle }}">Mâncare</button>
+      <button onClick="{{ pickDrinks }}" style="{{ drinksTabStyle }}">Băuturi</button>
+      <button onClick="{{ pickDessert }}" style="{{ dessertTabStyle }}">Desert</button>
+    </div>
+
+    <div style="min-width:60px;text-align:right;color:#8C8A90;font-size:12px;letter-spacing:1px;font-variant-numeric:tabular-nums">{{ pageLabel }}</div>
+  </header>
+
+  <!-- book stage -->
+  <div style="flex:1;width:100%;display:flex;align-items:center;justify-content:center;padding:8px clamp(12px,4vw,40px) 22px;position:relative;z-index:10">
+    <div style="position:relative;width:min(600px,94vw);height:min(82dvh,860px)">
+
+      <!-- ===== STATIC LEAF (current / destination) ===== -->
+      <div style="position:absolute;inset:0;border-radius:8px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.06)">
+        <sc-if value="{{ staticIsCover }}" hint-placeholder-val="{{ true }}">
+          <div style="{{ coverStyle }}">
+            <div style="position:absolute;inset:0;background:radial-gradient(90% 60% at 50% 30%, rgba(196,21,32,.14), transparent 60%);pointer-events:none"></div>
+            <img src="assets/logo-white.png" alt="Logo X Sweets and Coffee by Traxilvania — meniu cafenea Păltiniș, Sibiu" style="width:min(260px,62%);height:auto;position:relative;z-index:1">
+            <div style="display:flex;align-items:center;gap:16px;margin-top:10px;position:relative;z-index:1">
+              <span style="width:44px;height:1px;background:rgba(216,50,61,.7)"></span>
+              <h1 style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;font-size:clamp(2.6rem,10vw,4rem);color:#F6F5F3;margin:0;line-height:1">Meniu</h1>
+              <span style="width:44px;height:1px;background:rgba(216,50,61,.7)"></span>
+            </div>
+            <div style="position:relative;z-index:1;margin-top:16px;display:inline-flex;align-items:center;gap:12px;background:rgba(196,21,32,.16);border:1px solid rgba(216,50,61,.55);padding:10px 26px;border-radius:40px">
+              <span style="color:#F6F5F3;font-size:15px;letter-spacing:3.5px;text-transform:uppercase;font-weight:500">{{ coverCategory }}</span>
+            </div>
+            <p style="position:relative;z-index:1;color:#9A9890;font-size:12px;letter-spacing:3px;text-transform:uppercase;margin:18px 0 0">Păltiniș · Sibiu</p>
+            <div style="position:relative;z-index:1;margin-top:30px">
+              <span style="display:inline-block;animation:mFloatX 1.8s ease-in-out infinite;color:#D8323D;font-size:2rem;line-height:1">→</span>
+            </div>
+          </div>
+        </sc-if>
+        <sc-if value="{{ staticIsContent }}" hint-placeholder-val="{{ false }}">
+          <dc-import name="MenuPage" page="{{ staticPage }}" hint-size="100%,100%" style="position:absolute;inset:0"></dc-import>
+        </sc-if>
+      </div>
+
+      <!-- ===== FLIPPING LEAF ===== -->
+      <sc-if value="{{ flipping }}" hint-placeholder-val="{{ false }}">
+        <div style="{{ flipperStyle }}">
+          <sc-if value="{{ flipperIsCover }}" hint-placeholder-val="{{ false }}">
+            <div style="{{ coverStyle }}">
+              <img src="assets/logo-white.png" alt="Logo meniu X Sweets and Coffee, Păltiniș, Sibiu" style="width:min(260px,62%);height:auto">
+              <div style="display:flex;align-items:center;gap:16px;margin-top:10px">
+                <span style="width:44px;height:1px;background:rgba(216,50,61,.7)"></span>
+                <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;font-size:clamp(2.6rem,10vw,4rem);color:#F6F5F3;line-height:1">Meniu</span>
+                <span style="width:44px;height:1px;background:rgba(216,50,61,.7)"></span>
+              </div>
+              <div style="margin-top:16px;display:inline-flex;align-items:center;gap:12px;background:rgba(196,21,32,.16);border:1px solid rgba(216,50,61,.55);padding:10px 26px;border-radius:40px">
+                <span style="color:#F6F5F3;font-size:15px;letter-spacing:3.5px;text-transform:uppercase;font-weight:500">{{ coverCategory }}</span>
+              </div>
+              <p style="color:#9A9890;font-size:12px;letter-spacing:3px;text-transform:uppercase;margin-top:18px">Păltiniș · Sibiu</p>
+            </div>
+          </sc-if>
+          <sc-if value="{{ flipperIsContent }}" hint-placeholder-val="{{ false }}">
+            <dc-import name="MenuPage" page="{{ flipperPage }}" hint-size="100%,100%" style="position:absolute;inset:0"></dc-import>
+          </sc-if>
+          <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(0,0,0,.32),rgba(0,0,0,0) 22%,rgba(0,0,0,0) 78%,rgba(0,0,0,.18))"></div>
+        </div>
+      </sc-if>
+
+    </div>
+  </div>
+
+  <!-- nav controls -->
+  <div style="display:flex;align-items:center;gap:20px;padding:0 0 26px;position:relative;z-index:20">
+    <button onClick="{{ prev }}" aria-label="Pagina anterioară" style="{{ prevBtnStyle }}">‹</button>
+    <span style="color:#8C8A90;font-size:12px;letter-spacing:2px;text-transform:uppercase;min-width:120px;text-align:center">{{ menuLabel }}</span>
+    <button onClick="{{ next }}" aria-label="Pagina următoare" style="{{ nextBtnStyle }}">›</button>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;,&quot;height&quot;:&quot;100%&quot;},&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#9E0B12&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Aspect&quot;,&quot;options&quot;:[&quot;#C41520&quot;,&quot;#A81018&quot;,&quot;#D8323D&quot;,&quot;#9E0B12&quot;]}}">
+class Component extends DCLogic {
+  state = { menu: 'food', idx: 0, flip: null, flipRot: 0 };
+
+  FOOD = [
+    { sections: [
+      { name: 'Ciorbe · Soups', items: [
+        { ro: 'Ciorbă de burtă', sub: 'Tripe soup · 400g', price: '34 lei' },
+        { ro: 'Ciorbă de vacuță', sub: 'Beef soup · 400g', price: '34 lei' },
+        { ro: 'Ciorbă de pui à la grec', sub: 'Greek style chicken soup · 400g', price: '32 lei' },
+      ]},
+      { name: 'Fel principal · Main course', items: [
+        { ro: 'Crispy de pui cu cartofi prăjiți', sub: 'Crispy chicken with french fries · 350g', price: '52 lei' },
+        { ro: 'Șnițel de pui cu cartofi prăjiți', sub: 'Chicken schnitzel with french fries · 350g', price: '52 lei' },
+        { ro: 'Piept de pui cu cartofi prăjiți și legume la grătar', sub: 'Grilled chicken breast, fries & vegetables · 350g', price: '58 lei' },
+        { ro: 'Cordon bleu cu cartofi prăjiți', sub: 'Chicken cordon bleu with french fries · 420g', price: '58 lei' },
+        { ro: 'Cașcaval pane cu cartofi prăjiți', sub: 'Breaded cheese with french fries · 360g', price: '52 lei' },
+      ]},
+    ]},
+    { sections: [
+      { name: 'Fel principal · Main course', items: [
+        { ro: 'Cârnăciori afumați cu cartofi prăjiți și legume', sub: 'Smoked sausages, fries & vegetables · 360g', price: '59 lei' },
+        { ro: 'Cotlet de porc cu cartofi prăjiți și legume', sub: 'Pork chop, fries & vegetables · 350g', price: '58 lei' },
+        { ro: 'Burger de vită Black Angus, cartofi & legume', sub: 'Black Angus beef burger, fries & vegetables · 450g', price: '68 lei' },
+        { ro: 'Mititei de vită Black Angus (3 buc), cartofi & legume', sub: 'Black Angus beef sausages (3 pcs), fries & vegetables · 360g', price: '59 lei' },
+      ]},
+      { name: 'Suplimente · Supplements', items: [
+        { ro: 'Sos barbeque / usturoi / ketchup / maioneză', sub: 'BBQ / garlic / ketchup / mayo · 50g', price: '5 lei' },
+        { ro: 'Muștar', sub: 'Mustard · 50g', price: '5 lei' },
+        { ro: 'Pâine', sub: 'Bread · 100g', price: '5 lei' },
+        { ro: 'Smântână', sub: 'Sour cream · 50g', price: '5 lei' },
+        { ro: 'Ardei iute', sub: 'Hot pepper', price: '5 lei' },
+      ]},
+    ]},
+  ];
+
+  DESSERT = [
+    { sections: [
+      { name: 'Desert · Sweet corner', items: [
+        { ro: 'Apple pie', sub: '135g', price: '28 lei', img: 'assets/desert-apple-pie.png' },
+        { ro: 'Lava cake', sub: '145g', price: '27 lei', img: 'assets/desert-lava-simple.png' },
+        { ro: 'Lava cake cu înghețată', sub: '145g', price: '30 lei', img: 'assets/desert-lava-inghetata.png' },
+        { ro: 'Coconut cake', sub: '145g', price: '29 lei', img: 'assets/desert-coconut-cake.png' },
+        { ro: 'Tiramisu mousse mono', sub: '120g', price: '27 lei', img: 'assets/desert-tiramisu.png' },
+        { ro: 'Carrot cake', sub: '130g', price: '29 lei', img: 'assets/desert-carrot-cake.png' },
+        { ro: 'Cherries cake mono', sub: '125g', price: '29 lei', img: 'assets/desert-cherries-cake.png' },
+        { ro: 'Melon mousse', sub: '112g', price: '27 lei', img: 'assets/desert-melon-mousse.png' },
+      ]},
+    ]},
+    { sections: [
+      { name: 'Desert · Sweet corner', items: [
+        { ro: 'Choco mousse mono', sub: '128g', price: '27 lei', img: 'assets/desert-choco-mousse.png' },
+        { ro: 'Berries cheese cake', sub: '140g', price: '27 lei', img: 'assets/desert-berries-cheesecake.png' },
+        { ro: 'Caramel cake', sub: '100g', price: '29 lei', img: 'assets/desert-caramel-cake.png' },
+        { ro: 'Red velvet cake', sub: '150g', price: '32 lei', img: 'assets/desert-red-velvet.png' },
+        { ro: 'Tort salam de biscuiți', sub: '120g', price: '28 lei', img: 'assets/desert-tort-salam.png' },
+        { ro: 'Fashion raspberry & white chocolate éclair', sub: '100g', price: '28 lei', img: 'assets/desert-raspberry-eclair.png' },
+        { ro: 'Fashion milk chocolate & banana', sub: '147g', price: '28 lei', img: 'assets/desert-milk-choco-banana.png' },
+      ]},
+    ]},
+    { sections: [
+      { name: 'Desert · Sweet corner', items: [
+        { ro: 'Fashion domme mango & passionfruit', sub: '115g', price: '32 lei', img: 'assets/desert-mango-passionfruit.png' },
+        { ro: 'Fashion lavander éclair', sub: '120g', price: '29 lei', img: 'assets/desert-lavander-eclair.png' },
+        { ro: 'Fashion black & white chocolate', sub: '125g', price: '29 lei', img: 'assets/desert-black-white-choco.png' },
+        { ro: 'Fashion berries éclair', sub: '118g', price: '28 lei', img: 'assets/desert-berries-eclair.png' },
+        { ro: 'Dubai chocolate domme', sub: '100g', price: '32 lei', img: 'assets/desert-dubai-choco.png' },
+        { ro: 'Papanași', sub: '400g', price: '36 lei', img: 'assets/desert-papanasi.png' },
+      ]},
+    ]},
+  ];
+
+  DRINKS = [
+    { sections: [
+      { name: 'Cafea · Coffee', items: [
+        { ro: 'Ristretto / Espresso / Long', sub: '20 / 40 / 80 ml', price: '15 lei' },
+        { ro: 'Espresso Decaf', sub: '80 ml', price: '15 lei' },
+        { ro: 'Espresso Doppio', sub: '80 ml', price: '20 lei' },
+        { ro: 'Flat White', sub: '120 ml', price: '21 lei' },
+        { ro: 'Cappuccino Italian / Decaf', sub: '120 ml', price: '17 lei' },
+        { ro: 'Cappuccino Viennese', sub: '120 ml', price: '18 lei' },
+        { ro: 'Latte Macchiato', sub: 'vanilie / caramel · 250 ml', price: '19/20 lei' },
+        { ro: 'Café Frappé', sub: '250 ml', price: '26 lei' },
+        { ro: 'Irish Coffee', sub: '160 ml', price: '24 lei' },
+        { ro: 'Ice Coffee', sub: '250 ml', price: '22 lei' },
+      ]},
+    ]},
+    { sections: [
+      { name: 'Cafea · Coffee', items: [
+        { ro: 'Ciocolată caldă', sub: 'Hot chocolate · 200 ml', price: '25 lei' },
+      ]},
+      { name: 'Ceai · Tea', items: [
+        { ro: 'Fruit Symphony / Fructe', sub: '250 ml', price: '20 lei' },
+        { ro: 'Strawberry Mint / Căpșuni & Mentă', sub: '250 ml', price: '20 lei' },
+        { ro: 'Ginger Lemongrass / Ghimbir & Citronelă', sub: '250 ml', price: '20 lei' },
+        { ro: 'Earl Grey / Negru', sub: '250 ml', price: '20 lei' },
+        { ro: 'Vanilla Apfelstrudel / Măr & Vanilie', sub: '250 ml', price: '20 lei' },
+        { ro: 'Green Jasmine / Verde', sub: '250 ml', price: '20 lei' },
+      ]},
+    ]},
+    { sections: [
+      { name: 'Băuturi răcoritoare · Soft drinks', items: [
+        { ro: 'Dorna plată / Apă minerală', sub: 'Still / Mineral water · 330 ml', price: '13 lei' },
+        { ro: 'Acqua Panna', sub: '750 ml', price: '26 lei' },
+        { ro: 'San Pellegrino', sub: '750 ml', price: '26 lei' },
+        { ro: 'Coca Cola / Cola Zero', sub: '250 ml', price: '15 lei' },
+        { ro: 'Fanta / Sprite', sub: '250 ml', price: '15 lei' },
+        { ro: 'Schweppes (Tonic / Mandarin / Bitter Lemon / Pink)', sub: '250 ml', price: '15 lei' },
+        { ro: 'Fuzetea Lămâie / Piersici', sub: '250 ml', price: '15 lei' },
+        { ro: 'Burn', sub: '250 ml', price: '20 lei' },
+        { ro: 'Red Bull', sub: '250 ml', price: '20 lei' },
+      ]},
+    ]},
+    { sections: [
+      { name: 'Bere · Beer', items: [
+        { ro: 'Peroni Nastro Azzurro / Zero', sub: '330 ml', price: '19 lei' },
+        { ro: 'Corona', sub: '355 ml', price: '20 lei' },
+        { ro: 'Ursus Premium', sub: '330 ml', price: '19 lei' },
+        { ro: 'Ursus Cooler Lămâie', sub: '330 ml', price: '19 lei' },
+        { ro: 'Kozel Premium Lager', sub: '330 ml', price: '19 lei' },
+        { ro: 'Kozel Dark', sub: '330 ml', price: '19 lei' },
+      ]},
+    ]},
+    { sections: [
+      { name: 'Classic cocktails', items: [
+        { ro: 'Hugo', sub: 'soc, prosecco, apă minerală, lime, mentă · 250 ml', price: '35 lei' },
+        { ro: 'Aperol Spritz', sub: 'Aperol, prosecco, apă minerală, portocală · 250 ml', price: '35 lei' },
+        { ro: 'Campari Orange', sub: 'Campari, suc portocale, portocală · 250 ml', price: '35 lei' },
+        { ro: 'Campari Spritz', sub: 'Campari, frizzante, apă minerală, portocală · 250 ml', price: '35 lei' },
+        { ro: 'Mojito', sub: 'Captain Morgan White, apă minerală, lime, mentă · 250 ml', price: '35 lei' },
+      ]},
+    ]},
+    { sections: [
+      { name: 'N/A cocktails · fără alcool', items: [
+        { ro: 'NA Hugo', sub: 'soc, apă minerală, mentă, lime · 250 ml', price: '33 lei' },
+        { ro: 'NA Mojito', sub: 'apă minerală, zahăr, lime, mentă · 250 ml', price: '33 lei' },
+        { ro: 'Orange Sun', sub: 'ananas, suc portocale, lime · 250 ml', price: '33 lei' },
+        { ro: 'Melon Me', sub: 'pepene, mere, portocale, lime · 250 ml', price: '33 lei' },
+        { ro: 'Blackberry Kiss', sub: 'mure, portocale, mere, lime · 250 ml', price: '33 lei' },
+      ]},
+    ]},
+    { sections: [
+      { name: 'Refreshing tall drinks', items: [
+        { ro: 'Cuba Libre', sub: 'Captain Morgan White, lime, cola · 250 ml', price: '35 lei' },
+        { ro: 'Gin Tonic', sub: 'Tanqueray, lime, apă tonică · 250 ml', price: '35 lei' },
+        { ro: 'Vodka Mixers', sub: 'Smirnoff Red, suc, lime · 250 ml', price: '35 lei' },
+        { ro: 'Whisky Cola', sub: 'Johnnie Walker Red, cola, lime · 250 ml', price: '35 lei' },
+      ]},
+      { name: 'Shots', items: [ { ro: 'Diverse sortimente', sub: '40 ml', price: '23 lei' } ]},
+    ]},
+    { sections: [
+      { name: 'Rom · Rum', items: [
+        { ro: 'Zacapa 23 YO', sub: '40 ml', price: '41 lei' },
+        { ro: 'Captain Morgan White', sub: '40 ml', price: '21 lei' },
+        { ro: 'Captain Morgan Black Spiced', sub: '40 ml', price: '23 lei' },
+      ]},
+      { name: 'Gin', items: [
+        { ro: 'Tanqueray London Dry', sub: '40 ml', price: '22 lei' },
+        { ro: "Gordon's Pink", sub: '40 ml', price: '22 lei' },
+      ]},
+    ]},
+    { sections: [
+      { name: 'Cognac', items: [
+        { ro: 'Martell VS', sub: '40 ml', price: '32 lei' },
+        { ro: 'Martell VSOP', sub: '40 ml', price: '37 lei' },
+        { ro: 'Jidvei VSOP', sub: '40 ml', price: '30 lei' },
+      ]},
+      { name: 'Whisky', items: [
+        { ro: 'Johnnie Walker Black Label', sub: '40 ml', price: '32 lei' },
+        { ro: 'Johnnie Walker Red Label', sub: '40 ml', price: '30 lei' },
+        { ro: 'Bulleit Bourbon', sub: '40 ml', price: '35 lei' },
+      ]},
+    ]},
+    { sections: [
+      { name: 'Lichior · Liquers', items: [ { ro: 'Baileys Irish Cream', sub: '40 ml', price: '24 lei' } ]},
+      { name: 'Digestiv · Digestives', items: [
+        { ro: 'Jägermeister', sub: '40 ml', price: '28 lei' },
+        { ro: 'Amaro Montenegro', sub: '40 ml', price: '28 lei' },
+      ]},
+      { name: 'Tradiționale', items: [
+        { ro: 'Bran Țuică de Prune', sub: '40 ml', price: '25 lei' },
+        { ro: 'Bran Afinată', sub: '40 ml', price: '25 lei' },
+        { ro: 'Bran Vișinată', sub: '40 ml', price: '25 lei' },
+      ]},
+    ]},
+    { sections: [
+      { name: 'Vodka', items: [
+        { ro: 'Grey Goose', sub: '40 ml', price: '37 lei' },
+        { ro: 'Belvedere', sub: '40 ml', price: '39 lei' },
+        { ro: 'Smirnoff Red', sub: '40 ml', price: '21 lei' },
+      ]},
+      { name: 'Vin alb · White wine', items: [
+        { ro: 'Crama Oprișor · Rusalca Alba', sub: '750 ml', price: '160 lei' },
+        { ro: 'Serve · Terra Romana Sauvignon Blanc / Fetească Albă Sec', sub: '750 ml', price: '140 lei' },
+        { ro: 'Serve · Cuvee Pacs Sec', sub: '750 ml', price: '160 lei' },
+        { ro: 'Jidvei · Ana Sauvignon Blanc Sec', sub: '750 ml', price: '200 lei' },
+      ]},
+    ]},
+    { sections: [
+      { name: 'Vin rosé · Rosé wine', items: [
+        { ro: 'Crama Oprișor · Jiana Rose', sub: '750 ml', price: '160 lei' },
+        { ro: 'Serve · Terra Romana Rose Sec', sub: '750 ml', price: '140 lei' },
+        { ro: 'Serve · Cuvee Sissi Sec', sub: '750 ml', price: '170 lei' },
+        { ro: 'Jidvei · Iluziv Roze Sec', sub: '750 ml', price: '130 lei' },
+        { ro: 'Jidvei · Mysterium Rose Sec', sub: '750 ml', price: '140 lei' },
+      ]},
+      { name: 'Vin roșu · Red wine', items: [
+        { ro: 'Crama Oprișor · Drăgaica Roșie', sub: '750 ml', price: '180 lei' },
+        { ro: 'Serve · Terra Romana Fetească Neagră Sec', sub: '750 ml', price: '140 lei' },
+      ]},
+    ]},
+    { sections: [
+      { name: 'La pahar · Glass of wine', items: [
+        { ro: 'Maiastru Sauvignon Blanc / Rose / Cabernet', sub: '250 ml', price: '29 lei' },
+        { ro: 'Vin fiert', sub: '240 ml', price: '25 lei' },
+      ]},
+      { name: 'Prosecco', items: [
+        { ro: 'Astoria Fashion Victim Moscato Rose Sweet', sub: '750 ml', price: '150 lei' },
+        { ro: 'Bepin de Eto Moscato Bianco Demidulce', sub: '750 ml', price: '150 lei' },
+        { ro: 'Prosecco', sub: '200 ml', price: '34 lei' },
+      ]},
+    ]},
+  ];
+
+  data() {
+    if (this.state.menu === 'drinks') return this.DRINKS;
+    if (this.state.menu === 'dessert') return this.DESSERT;
+    return this.FOOD;
+  }
+  total() { return this.data().length + 1; }
+
+  next() {
+    const s = this.state;
+    if (s.flip || s.idx >= this.total() - 1) return;
+    const from = s.idx, to = from + 1;
+    this.setState({ flip: { dir: 'fwd', from, to }, flipRot: 0 });
+    requestAnimationFrame(() => requestAnimationFrame(() => this.setState({ flipRot: -180 })));
+    clearTimeout(this._ft);
+    this._ft = setTimeout(() => this.setState({ idx: to, flip: null, flipRot: 0 }), 820);
+  }
+
+  prev() {
+    const s = this.state;
+    if (s.flip || s.idx <= 0) return;
+    const from = s.idx, to = from - 1;
+    this.setState({ flip: { dir: 'bwd', from, to }, flipRot: -180 });
+    requestAnimationFrame(() => requestAnimationFrame(() => this.setState({ flipRot: 0 })));
+    clearTimeout(this._ft);
+    this._ft = setTimeout(() => this.setState({ idx: to, flip: null, flipRot: 0 }), 820);
+  }
+
+  pick(m) {
+    clearTimeout(this._ft);
+    // always start at the cover of the chosen menu; the reader advances with the arrows
+    this.setState({ menu: m, idx: 0, flip: null, flipRot: 0 });
+  }
+
+  pageAt(index) {
+    if (index === 0) return { cover: true, page: null };
+    return { cover: false, page: this.data()[index - 1] };
+  }
+
+  componentDidMount() {
+    this._key = (e) => { if (e.key === 'ArrowRight') this.next(); else if (e.key === 'ArrowLeft') this.prev(); };
+    window.addEventListener('keydown', this._key);
+    try { window.scrollTo(0, 0); } catch (e) {}
+  }
+  componentWillUnmount() { window.removeEventListener('keydown', this._key); clearTimeout(this._ft); }
+
+  renderVals() {
+    const s = this.state;
+    const flipping = !!s.flip;
+    let staticIndex, flipperIndex;
+    if (!flipping) { staticIndex = s.idx; flipperIndex = null; }
+    else if (s.flip.dir === 'fwd') { staticIndex = s.flip.to; flipperIndex = s.flip.from; }
+    else { staticIndex = s.flip.from; flipperIndex = s.flip.to; }
+
+    const st = this.pageAt(staticIndex);
+    const fp = flipperIndex != null ? this.pageAt(flipperIndex) : { cover: false, page: null };
+
+    const tabBase = { cursor: 'pointer', border: 'none', fontSize: '12px', letterSpacing: '1.1px', textTransform: 'uppercase', padding: '10px 16px', borderRadius: '40px', transition: 'all .3s ease', whiteSpace: 'nowrap' };
+    const tabOn = Object.assign({}, tabBase, { background: '#C41520', color: '#fff' });
+    const tabOff = Object.assign({}, tabBase, { background: 'transparent', color: '#B4B2B8' });
+
+    const coverStyle = { width: '100%', height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', background: 'linear-gradient(160deg,#17151a,#0d0c0f)', padding: 'clamp(24px,6%,50px)', gap: '4px', position: 'relative' };
+
+    const atStart = s.idx <= 0 && !flipping;
+    const atEnd = s.idx >= this.total() - 1 && !flipping;
+
+    const navBtn = (disabled) => ({
+      width: '54px', height: '54px', borderRadius: '50%', cursor: disabled ? 'default' : 'pointer',
+      border: '1px solid ' + (disabled ? 'rgba(255,255,255,.08)' : 'rgba(216,50,61,.6)'),
+      background: disabled ? 'transparent' : 'rgba(196,21,32,.12)',
+      color: disabled ? '#4A484E' : '#F4F4F5', fontSize: '24px', lineHeight: '1', display: 'flex', alignItems: 'center', justifyContent: 'center',
+    });
+
+    const label = s.menu === 'drinks' ? 'Băuturi' : (s.menu === 'dessert' ? 'Desert' : 'Mâncare');
+
+    return {
+      pickFood: () => this.pick('food'),
+      pickDrinks: () => this.pick('drinks'),
+      pickDessert: () => this.pick('dessert'),
+      foodTabStyle: s.menu === 'food' ? tabOn : tabOff,
+      drinksTabStyle: s.menu === 'drinks' ? tabOn : tabOff,
+      dessertTabStyle: s.menu === 'dessert' ? tabOn : tabOff,
+
+      staticIsCover: st.cover,
+      staticIsContent: !st.cover,
+      staticPage: st.page,
+      coverStyle,
+
+      flipping,
+      flipperIsCover: fp.cover,
+      flipperIsContent: flipperIndex != null && !fp.cover,
+      flipperPage: fp.page,
+      flipperStyle: {
+        position: 'absolute', inset: 0, borderRadius: '8px', overflow: 'hidden',
+        transformOrigin: 'left center', transform: 'rotateY(' + s.flipRot + 'deg)',
+        transition: 'transform .8s cubic-bezier(.42,.02,.28,1)',
+        backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden',
+        boxShadow: '0 30px 80px rgba(0,0,0,.6)', border: '1px solid rgba(255,255,255,.06)', zIndex: 6,
+      },
+
+      prev: () => this.prev(),
+      next: () => this.next(),
+      prevCursor: atStart ? 'default' : 'w-resize',
+      nextCursor: atEnd ? 'default' : 'e-resize',
+      prevBtnStyle: navBtn(atStart),
+      nextBtnStyle: navBtn(atEnd),
+
+      pageLabel: s.idx === 0 ? 'Copertă' : s.idx + ' / ' + (this.total() - 1),
+      menuLabel: label,
+      coverCategory: label,
+    };
+  }
+}
+</script>
+</body>
+</html>

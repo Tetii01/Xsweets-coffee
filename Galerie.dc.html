@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics="">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Galerie — X Sweets and Coffee by Traxilvania, Păltiniș Sibiu</title>
+<meta name="description" content="Galerie foto X Sweets and Coffee by Traxilvania din Păltiniș, județul Sibiu — mâncare, băuturi, deserturi și terasa cu priveliște spre munți.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Montserrat:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0B0B0C; --bg2:#111113; --surface:#141416;
+    --text:#F4F4F5; --text2:#B4B4BA; --muted:#7C7C83;
+    --gold:#C41520; --gold-soft:#D8323D;
+    --border:rgba(255,255,255,.13); --border2:rgba(255,255,255,.06);
+    --shadow:0 24px 60px rgba(0,0,0,.55);
+    --nav:rgba(11,11,12,.8);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{background:var(--bg);overflow-x:hidden}
+  ::selection{background:var(--gold);color:#fff}
+  @media(max-width:520px){.g-title{font-size:2.1rem !important}}
+  @media(max-width:900px){.g-grid{column-count:2 !important}}
+  @media(max-width:560px){.g-grid{column-count:1 !important}}
+  @keyframes gUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes gFade{from{opacity:0}to{opacity:1}}
+</style>
+</helmet>
+
+<div style="background:var(--bg);color:var(--text);font-family:'Montserrat',sans-serif;min-height:100vh;overflow-x:hidden">
+
+  <header style="position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;justify-content:space-between;padding:12px clamp(18px,5vw,54px);background:var(--nav);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border2)">
+    <a href="X Sweets and Coffee.dc.html" aria-label="Înapoi la pagina principală" style="display:inline-flex;align-items:center;gap:9px;color:var(--text2);text-decoration:none;font-size:12.5px;letter-spacing:1.4px;text-transform:uppercase" style-hover="color:var(--text)">← Acasă</a>
+    <a href="X Sweets and Coffee.dc.html" aria-label="X Sweets and Coffee — acasă" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;align-items:center">
+      <img src="assets/logo-white.png" alt="Logo X Sweets and Coffee by Traxilvania — cafenea în Păltiniș, județul Sibiu" style="height:70px;width:auto;display:block">
+    </a>
+    <a href="Meniu.dc.html" style="color:var(--text2);text-decoration:none;font-size:12.5px;letter-spacing:1.4px;text-transform:uppercase" style-hover="color:var(--text)">Meniu</a>
+  </header>
+
+  <section style="max-width:1280px;margin:0 auto;padding:clamp(112px,15vw,168px) clamp(18px,5vw,60px) clamp(64px,9vw,110px)">
+    <div style="text-align:center;margin-bottom:clamp(36px,5vw,54px)">
+      <p style="font-size:12px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin:0 0 16px">Galerie</p>
+      <h1 class="g-title" style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(2.3rem,5.5vw,3.8rem);line-height:1.05;margin:0 0 18px;color:var(--text)">Din inima muntelui</h1>
+      <p style="font-size:1.02rem;line-height:1.8;color:var(--text2);margin:0 auto;max-width:520px;text-wrap:pretty">Momente din X Sweets and Coffee, sus în Păltiniș, județul Sibiu.</p>
+    </div>
+
+    <div style="column-count:3;column-gap:16px" class="g-grid">
+      <sc-for list="{{ photos }}" as="p" hint-placeholder-count="9">
+        <figure onClick="{{ p.open }}" style="break-inside:avoid;margin:0 0 16px;position:relative;overflow:hidden;border-radius:14px;border:1px solid var(--border);background:var(--surface);cursor:pointer">
+          <img src="{{ p.src }}" alt="{{ p.alt }}" loading="lazy" style="width:100%;display:block;transition:transform .7s ease" style-hover="transform:scale(1.05)">
+        </figure>
+      </sc-for>
+    </div>
+  </section>
+
+  <footer style="border-top:1px solid var(--border2);padding:clamp(40px,6vw,64px) clamp(18px,5vw,60px);text-align:center">
+    <a href="X Sweets and Coffee.dc.html" style="display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:#fff;text-decoration:none;font-size:14px;letter-spacing:1.5px;text-transform:uppercase;padding:16px 36px;border-radius:40px;box-shadow:var(--shadow)" style-hover="background:var(--text)">← Înapoi la pagina principală</a>
+    <p style="margin:26px 0 0;font-size:12px;letter-spacing:1px;color:var(--muted)">X Sweets and Coffee by Traxilvania · Păltiniș, Sibiu</p>
+  </footer>
+
+  <sc-if value="{{ lightboxOpen }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeLightbox }}" style="position:fixed;inset:0;z-index:90;background:rgba(0,0,0,.92);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:clamp(16px,4vw,48px);animation:gFade .3s ease">
+      <button onClick="{{ closeLightbox }}" aria-label="Închide" style="position:absolute;top:20px;right:22px;width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:rgba(0,0,0,.4);color:#fff;font-size:22px;cursor:pointer;line-height:1">✕</button>
+      <button onClick="{{ prevImg }}" aria-label="Anterioară" style="position:absolute;left:clamp(10px,3vw,32px);top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:rgba(0,0,0,.4);color:#fff;font-size:24px;cursor:pointer;line-height:1">‹</button>
+      <button onClick="{{ nextImg }}" aria-label="Următoare" style="position:absolute;right:clamp(10px,3vw,32px);top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:rgba(0,0,0,.4);color:#fff;font-size:24px;cursor:pointer;line-height:1">›</button>
+      <figure onClick="{{ stop }}" style="margin:0;max-width:min(1000px,92vw);max-height:86vh;display:flex;flex-direction:column;align-items:center;gap:16px">
+        <img src="{{ lightboxSrc }}" alt="{{ lightboxAlt }}" style="max-width:100%;max-height:82vh;object-fit:contain;border-radius:12px;box-shadow:0 30px 80px rgba(0,0,0,.7)">
+      </figure>
+    </div>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { cat: 'toate', lightbox: null };
+
+  data() {
+    return [
+      // MÂNCARE
+      { src: 'assets/gallery/food-1.jpg', cat: 'mancare', cap: 'Preparate gustoase', alt: 'Preparat gustos la restaurantul X Sweets and Coffee din Păltiniș, Sibiu' },
+      { src: 'assets/gallery/food-2.jpg', cat: 'mancare', cap: 'Platouri generoase', alt: 'Platou generos la X Sweets and Coffee din Păltiniș, județul Sibiu' },
+      { src: 'assets/gallery/food-3.jpg', cat: 'mancare', cap: 'Burger de savurat', alt: 'Burger cu garnitură la restaurantul din Păltiniș, munții Sibiului' },
+      { src: 'assets/gallery/food-4.jpg', cat: 'mancare', cap: 'Mic dejun la munte', alt: 'Mic dejun servit pe terasă la X Sweets and Coffee, Păltiniș, Sibiu' },
+      { src: 'assets/gallery/food-5.jpg', cat: 'mancare', cap: 'Masă în familie', alt: 'Masă generoasă de savurat la X Sweets and Coffee din Păltiniș' },
+      // BĂUTURI
+      { src: 'assets/gallery/drink-1.jpg', cat: 'bauturi', cap: 'Cocktail cu priveliște', alt: 'Cocktail răcoritor cu priveliște spre munți la X Sweets and Coffee, Păltiniș' },
+      { src: 'assets/gallery/drink-2.jpg', cat: 'bauturi', cap: 'Smoothie proaspăt', alt: 'Smoothie proaspăt cu priveliște spre munții din Păltiniș, Sibiu' },
+      { src: 'assets/gallery/drink-3.jpg', cat: 'bauturi', cap: 'Cafea pe terasă', alt: 'Cafea și băuturi servite pe terasa X Sweets and Coffee din Păltiniș' },
+      // DESERTURI
+      { src: 'assets/gallery/dessert-1.jpg', cat: 'deserturi', cap: 'Deserturi la apus', alt: 'Deserturi cu priveliște la apus la X Sweets and Coffee din Păltiniș, Sibiu' },
+      { src: 'assets/gallery/dessert-2.jpg', cat: 'deserturi', cap: 'Cupă cu fructe', alt: 'Cupă de desert cu fructe și priveliște spre munți, Păltiniș' },
+      { src: 'assets/gallery/dessert-3.jpg', cat: 'deserturi', cap: 'Lava cake', alt: 'Lava cake servit pe terasă la cofetăria din Păltiniș, Sibiu' },
+      { src: 'assets/gallery/dessert-4.jpg', cat: 'deserturi', cap: 'Éclair fructat', alt: 'Éclair cu fructe la cofetăria X Sweets and Coffee din Păltiniș' },
+      { src: 'assets/gallery/dessert-5.jpg', cat: 'deserturi', cap: 'Cheesecake', alt: 'Cheesecake servit la X Sweets and Coffee din Păltiniș, județul Sibiu' },
+      // TERASĂ
+      { src: 'assets/gallery/terasa-1.jpg', cat: 'terasa', cap: 'Terasă cu priveliște', alt: 'Terasa cu priveliște spre munți la X Sweets and Coffee din Păltiniș, Sibiu' },
+      { src: 'assets/gallery/terasa-2.jpg', cat: 'terasa', cap: 'Serile pe terasă', alt: 'Terasa seara, cu umbrele și lumini, la X Sweets and Coffee, Păltiniș' },
+      { src: 'assets/gallery/terasa-3.jpg', cat: 'terasa', cap: 'Colț de relaxare', alt: 'Colț de relaxare pe terasă cu priveliște spre munți, Păltiniș, Sibiu' },
+      { src: 'assets/gallery/terasa-4.jpg', cat: 'terasa', cap: 'Locația noastră', alt: 'Exteriorul restaurantului X Sweets and Coffee by Traxilvania din Păltiniș' },
+      { src: 'assets/gallery/terasa-5.jpg', cat: 'terasa', cap: 'Grădina cu flori', alt: 'Grădina cu flori la intrarea în X Sweets and Coffee din Păltiniș, Sibiu' },
+      { src: 'assets/gallery/terasa-6.jpg', cat: 'terasa', cap: 'Interior cald', alt: 'Interiorul decorat al X Sweets and Coffee din Păltiniș, județul Sibiu' },
+      { src: 'assets/gallery/terasa-7.jpg', cat: 'terasa', cap: 'Sala principală', alt: 'Sala principală amenajată cu flori la X Sweets and Coffee, Păltiniș' },
+    ];
+  }
+
+  renderVals() {
+    const all = this.data();
+
+    const photos = all.map((p, i) => ({
+      src: p.src, alt: p.alt,
+      open: () => this.setState({ lightbox: i }),
+    }));
+
+    const lb = this.state.lightbox;
+    const lbData = lb != null ? all[lb] : null;
+
+    return {
+      photos,
+      lightboxOpen: lb != null,
+      lightboxSrc: (lbData || all[0]).src,
+      lightboxAlt: (lbData || all[0]).alt,
+      closeLightbox: () => this.setState({ lightbox: null }),
+      stop: (e) => { if (e && e.stopPropagation) e.stopPropagation(); },
+      prevImg: (e) => { if (e) e.stopPropagation(); this.setState(st => ({ lightbox: (st.lightbox + all.length - 1) % all.length })); },
+      nextImg: (e) => { if (e) e.stopPropagation(); this.setState(st => ({ lightbox: (st.lightbox + 1) % all.length })); },
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -163,7 +163,6 @@
               <sc-for list="{{ gallery }}" as="img" hint-placeholder-count="6">
                 <figure onClick="{{ img.open }}" style="{{ img.tileStyle }}">
                   <img src="{{ img.src }}" alt="{{ img.alt }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s ease" style-hover="transform:scale(1.06)">
-                  <figcaption style="position:absolute;inset:0;display:flex;align-items:flex-end;padding:16px;background:linear-gradient(to top,rgba(0,0,0,.62),transparent 55%);opacity:0;transition:opacity .4s ease" style-hover="opacity:1"><span style="color:#F4E9D6;font-family:'Cormorant Garamond',serif;font-size:1.05rem">{{ img.cap }}</span></figcaption>
                 </figure>
               </sc-for>
             </div>
@@ -349,8 +348,7 @@
     <div onClick="{{ closeLightbox }}" style="position:fixed;inset:0;z-index:110;display:flex;align-items:center;justify-content:center;padding:24px;background:rgba(12,8,4,.9);backdrop-filter:blur(4px);animation:xsFade .3s ease">
       <button onClick="{{ prevImg }}" aria-label="Imaginea anterioară" style="position:absolute;left:14px;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(0,0,0,.3);color:#fff;font-size:22px;cursor:pointer">‹</button>
       <figure onClick="{{ stop }}" style="margin:0;max-width:min(900px,92vw);max-height:82vh;display:flex;flex-direction:column;gap:14px;align-items:center">
-        <img src="{{ lightboxSrc }}" alt="{{ lightboxAlt }}" style="max-width:100%;max-height:74vh;object-fit:contain;border-radius:10px;box-shadow:0 30px 80px rgba(0,0,0,.6)">
-        <figcaption style="color:#EDEDEF;font-family:'Cormorant Garamond',serif;font-size:1.15rem">{{ lightboxCap }}</figcaption>
+        <img src="{{ lightboxSrc }}" alt="{{ lightboxAlt }}" style="max-width:100%;max-height:82vh;object-fit:contain;border-radius:10px;box-shadow:0 30px 80px rgba(0,0,0,.6)">
       </figure>
       <button onClick="{{ nextImg }}" aria-label="Imaginea următoare" style="position:absolute;right:14px;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(0,0,0,.3);color:#fff;font-size:22px;cursor:pointer">›</button>
       <button onClick="{{ closeLightbox }}" aria-label="Închide galeria" style="position:absolute;top:18px;right:18px;width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(0,0,0,.3);color:#fff;font-size:24px;cursor:pointer">×</button>
@@ -405,6 +403,7 @@ class Component extends DCLogic {
     window.removeEventListener('touchmove', this._tm);
     window.removeEventListener('touchend', this._te);
     window.removeEventListener('resize', this._resize);
+    if (this._snap) cancelAnimationFrame(this._snap);
   }
 
   applyAccent() {
@@ -437,26 +436,70 @@ class Component extends DCLogic {
     }
   }
 
-  onTouchStart(e) { this.setState({ touchStartY: e.touches[0].clientY }); }
+  onTouchStart(e) {
+    if (this._snap) { cancelAnimationFrame(this._snap); this._snap = null; }
+    const y = e.touches[0].clientY;
+    this._lastTouchY = y;
+    this._lastTouchT = performance.now();
+    this._vy = 0;
+    this.setState({ touchStartY: y });
+  }
 
   onTouchMove(e) {
     const { fullyExpanded, progress, touchStartY } = this.state;
     if (!touchStartY) return;
     const touchY = e.touches[0].clientY;
     const deltaY = touchStartY - touchY;
+    // track finger velocity (px/ms, positive = swiping up) for momentum on release
+    const now = performance.now();
+    const dt = now - (this._lastTouchT || now);
+    if (dt > 0) this._vy = (this._lastTouchY - touchY) / dt;
+    this._lastTouchY = touchY;
+    this._lastTouchT = now;
     if (fullyExpanded && deltaY < -20 && window.scrollY <= 5) {
       this.setState({ fullyExpanded: false, showContent: false });
+      this.snapProgress(0);
       e.preventDefault();
     } else if (!fullyExpanded) {
       e.preventDefault();
-      const factor = deltaY < 0 ? 0.008 : 0.005;
+      const factor = deltaY < 0 ? 0.012 : 0.009;
       const np = Math.min(Math.max(progress + deltaY * factor, 0), 1);
       this.advance(np);
       this.setState({ touchStartY: touchY });
     }
   }
 
-  onTouchEnd() { this.setState({ touchStartY: 0 }); }
+  onTouchEnd() {
+    const { fullyExpanded, progress } = this.state;
+    this.setState({ touchStartY: 0 });
+    if (fullyExpanded) return;
+    // momentum: finish the gesture on release instead of freezing mid-way
+    const v = this._vy || 0;
+    let target;
+    if (progress <= 0.001) target = 0;
+    else if (v > 0.04) target = 1;
+    else if (v < -0.04) target = 0;
+    else target = progress > 0.3 ? 1 : 0;
+    this.snapProgress(target);
+  }
+
+  // animate the hero-expand progress to a target (0 = collapsed, 1 = fully expanded)
+  snapProgress(target) {
+    if (this._snap) { cancelAnimationFrame(this._snap); this._snap = null; }
+    const start = this.state.progress;
+    const dist = target - start;
+    if (Math.abs(dist) < 0.001) { this.advance(target); return; }
+    const dur = 460;
+    const t0 = performance.now();
+    const step = (t) => {
+      const k = Math.min(1, (t - t0) / dur);
+      const e = k < 0.5 ? 2 * k * k : 1 - Math.pow(-2 * k + 2, 2) / 2;
+      this.advance(start + dist * e);
+      if (k < 1) this._snap = requestAnimationFrame(step);
+      else { this._snap = null; this.advance(target); }
+    };
+    this._snap = requestAnimationFrame(step);
+  }
 
   onScroll() { if (!this.state.fullyExpanded) window.scrollTo(0, 0); }
 
@@ -547,7 +590,11 @@ class Component extends DCLogic {
       toggleTheme: () => this.toggleTheme(),
       toggleNav: () => this.setState(st => ({ navOpen: !st.navOpen })),
       navOpen: s.navOpen,
-      toTop: () => this.scrollToId('hero'),
+      toTop: () => {
+        if (this._snap) { cancelAnimationFrame(this._snap); this._snap = null; }
+        this.setState({ navOpen: false, fullyExpanded: false, showContent: false, progress: 0 });
+        try { window.scrollTo(0, 0); } catch (e) {}
+      },
       goDespre: () => this.scrollToId('despre'),
       goMeniu: () => { this.setState({ navOpen: false }); window.location.href = 'Meniu.dc.html'; },
       goGalerie: () => { this.setState({ navOpen: false }); window.location.href = 'Galerie.dc.html'; },

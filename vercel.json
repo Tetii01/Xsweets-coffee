@@ -1,0 +1,20 @@
+{
+  "trailingSlash": false,
+  "cleanUrls": false,
+  "rewrites": [
+    { "source": "/", "destination": "/acasa.dc.html" },
+    { "source": "/meniu", "destination": "/Meniu.dc.html" },
+    { "source": "/galerie", "destination": "/Galerie.dc.html" },
+    { "source": "/termeni", "destination": "/Termeni.dc.html" },
+    { "source": "/confidentialitate", "destination": "/Confidentialitate.dc.html" }
+  ],
+  "redirects": [
+    { "source": "/index.html", "destination": "/", "permanent": true },
+    { "source": "/acasa.dc.html", "destination": "/", "permanent": true },
+    { "source": "/X Sweets and Coffee.dc.html", "destination": "/", "permanent": true },
+    { "source": "/Meniu.dc.html", "destination": "/meniu", "permanent": true },
+    { "source": "/Galerie.dc.html", "destination": "/galerie", "permanent": true },
+    { "source": "/Termeni.dc.html", "destination": "/termeni", "permanent": true },
+    { "source": "/Confidentialitate.dc.html", "destination": "/confidentialitate", "permanent": true }
+  ]
+}

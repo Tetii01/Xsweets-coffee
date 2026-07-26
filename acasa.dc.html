@@ -168,7 +168,7 @@
               </sc-for>
             </div>
             <div style="display:flex;justify-content:center;margin-top:48px">
-              <a href="Galerie.dc.html" style="display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:#fff;text-decoration:none;font-size:14px;letter-spacing:1.5px;text-transform:uppercase;padding:17px 38px;border-radius:40px;box-shadow:var(--shadow)" style-hover="background:var(--text)">Mai multe →</a>
+              <a href="/galerie" style="display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:#fff;text-decoration:none;font-size:14px;letter-spacing:1.5px;text-transform:uppercase;padding:17px 38px;border-radius:40px;box-shadow:var(--shadow)" style-hover="background:var(--text)">Mai multe →</a>
             </div>
           </section>
 
@@ -179,7 +179,7 @@
               
               <p style="font-size:1.02rem;line-height:1.8;color:var(--text2);margin:0 auto;max-width:460px;text-wrap:pretty">Mâncare, deserturi, cafea și băuturi. Descoperă meniul nostru!</p>
             </div>
-            <a href="Meniu.dc.html" aria-label="Deschide meniul X Sweets and Coffee" style="display:block;max-width:440px;margin:0 auto;text-decoration:none">
+            <a href="/meniu" aria-label="Deschide meniul X Sweets and Coffee" style="display:block;max-width:440px;margin:0 auto;text-decoration:none">
               <div style="position:relative;aspect-ratio:3/4;border-radius:12px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.08);background:linear-gradient(160deg,#1a1013 0%,#0c0c0e 55%,#000 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:8%;transition:transform .5s ease,box-shadow .5s ease" style-hover="transform:translateY(-6px);box-shadow:0 40px 90px rgba(0,0,0,.62)">
                 <div style="position:absolute;inset:0;background:radial-gradient(90% 60% at 50% 30%, rgba(196,21,32,.16), transparent 60%);pointer-events:none"></div>
                 <img src="assets/logo-white.png" alt="Logo X Sweets and Coffee by Traxilvania — meniu cafenea Păltiniș, Sibiu" style="width:min(240px,60%);height:auto;position:relative;z-index:1">
@@ -300,8 +300,8 @@
           <h4 style="font-size:12px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin:0 0 18px">Informații</h4>
           <div style="display:flex;flex-direction:column;gap:10px">
             <a href="https://anpc.ro/" target="_blank" rel="noopener" style="color:var(--text2);text-decoration:none;font-size:.95rem" style-hover="color:var(--gold)">ANPC</a>
-            <a href="Termeni.dc.html" style="color:var(--text2);text-decoration:none;font-size:.95rem" style-hover="color:var(--gold)">Termeni și condiții</a>
-            <a href="Confidentialitate.dc.html" style="color:var(--text2);text-decoration:none;font-size:.95rem" style-hover="color:var(--gold)">Politica de confidențialitate</a>
+            <a href="/termeni" style="color:var(--text2);text-decoration:none;font-size:.95rem" style-hover="color:var(--gold)">Termeni și condiții</a>
+            <a href="/confidentialitate" style="color:var(--text2);text-decoration:none;font-size:.95rem" style-hover="color:var(--gold)">Politica de confidențialitate</a>
             <a href="https://maps.app.goo.gl/GXov3Cb3PcTJPEJ1A" target="_blank" rel="noopener" style="color:var(--text2);text-decoration:none;font-size:.95rem" style-hover="color:var(--gold)">Google Maps</a>
           </div>
         </div>
@@ -337,7 +337,7 @@
         <label style="display:block;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:8px">Data &amp; ora <span style="text-transform:none;letter-spacing:0;color:var(--muted)">(opțional)</span></label>
         <input type="datetime-local" value="{{ resDate }}" onInput="{{ setDate }}" style="width:100%;padding:14px 16px;border:1px solid var(--border);border-radius:12px;background:var(--surface2);color:var(--text);font-size:15px;margin-bottom:28px;outline:none">
 
-        <p style="font-size:.78rem;line-height:1.5;color:var(--muted);margin:0 0 14px">Prin trimitere, mesajul se deschide în WhatsApp. Vezi <a href="Confidentialitate.dc.html" style="color:var(--gold);text-decoration:none" style-hover="text-decoration:underline">Politica de confidențialitate</a>.</p>
+        <p style="font-size:.78rem;line-height:1.5;color:var(--muted);margin:0 0 14px">Prin trimitere, mesajul se deschide în WhatsApp. Vezi <a href="/confidentialitate" style="color:var(--gold);text-decoration:none" style-hover="text-decoration:underline">Politica de confidențialitate</a>.</p>
 
         <a href="{{ waHref }}" target="_blank" rel="noopener" onClick="{{ afterSubmit }}" style="display:flex;align-items:center;justify-content:center;gap:10px;background:#25D366;color:#fff;text-decoration:none;font-size:15px;letter-spacing:.5px;font-weight:500;padding:17px;border-radius:12px" style-hover="filter:brightness(1.05)">Trimite rezervarea pe WhatsApp</a>
         <p style="text-align:center;font-size:.8rem;color:var(--muted);margin:14px 0 0">sau sună la <a href="tel:+40752040566" style="color:var(--gold);text-decoration:none">0752 040 566</a></p>

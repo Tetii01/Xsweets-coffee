@@ -54,7 +54,7 @@
     '<div class="in">' +
       '<p>Folosim cookies pentru funcționarea corectă a site-ului. ' +
       'Nu folosim cookies de publicitate sau de urmărire a comportamentului. ' +
-      'Detalii în <a href="Confidentialitate.dc.html">Politica de confidențialitate</a>.</p>' +
+      'Detalii în <a href="/confidentialitate">Politica de confidențialitate</a>.</p>' +
       '<div class="btns">' +
         '<button type="button" class="no">Refuz</button>' +
         '<button type="button" class="yes">Accept</button>' +
